@@ -7,21 +7,39 @@
 
 import UIKit
 
+protocol FavRestaurantsCoordDelegateProtocol: class {
+    func showRestaurantInfo()
+}
+
 class FavouritesRestaurantsCoordinator: Coordinator {
     
     var childCoordinators = [Coordinator]()
-    var viewController: UIViewController
+    var navigationController: UINavigationController?
     
     private var favouritesRestaurantsVM: FavouritesRestaurantsViewModel?
     private var restaurantInfoVM: RestaurantInfoViewModel?
     
-    init(viewController: UIViewController) {
-        self.viewController = viewController
+    init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
     }
     
     func start() {
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         
-        //guard let
+        guard let favouritesRestaurantsVC = storyboard
+                .instantiateViewController(identifier: "FavouritesRestaurantsViewController") as?
+                FavouritesRestaurantsViewController else { return }
+        
+        favouritesRestaurantsVM = FavouritesRestaurantsViewModel()
+        favouritesRestaurantsVM?.actionDelegate = self
+        restaurantInfoVM = RestaurantInfoViewModel()
+        
+        navigationController?.pushViewController(favouritesRestaurantsVC, animated: true)
+    }
+}
+
+extension FavouritesRestaurantsCoordinator: FavRestaurantsCoordDelegateProtocol {
+    func showRestaurantInfo() {
+        
     }
 }

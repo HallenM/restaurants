@@ -14,17 +14,18 @@
 		8B1BB31C25FB73FD00FAB2F9 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1BB31B25FB73FD00FAB2F9 /* MapViewController.swift */; };
 		8B1BB31F25FB742500FAB2F9 /* FavouritesRestaurantsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1BB31E25FB742500FAB2F9 /* FavouritesRestaurantsViewController.swift */; };
 		8B1BB32225FB74DF00FAB2F9 /* RestaurantInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1BB32125FB74DF00FAB2F9 /* RestaurantInfoViewController.swift */; };
-		8B1BB32525FB757800FAB2F9 /* ListRestaurantsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1BB32425FB757800FAB2F9 /* ListRestaurantsViewModel.swift */; };
+		8B1BB32525FB757800FAB2F9 /* RestaurantsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1BB32425FB757800FAB2F9 /* RestaurantsListViewModel.swift */; };
 		8B1BB32825FB758C00FAB2F9 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1BB32725FB758C00FAB2F9 /* MapViewModel.swift */; };
 		8B1BB32B25FB75A500FAB2F9 /* FavouritesRestaurantsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1BB32A25FB75A500FAB2F9 /* FavouritesRestaurantsViewModel.swift */; };
-		8B1BB32F25FB785F00FAB2F9 /* ListRestaurantsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1BB32E25FB785F00FAB2F9 /* ListRestaurantsCoordinator.swift */; };
+		8B1BB32F25FB785F00FAB2F9 /* RestaurantsListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1BB32E25FB785F00FAB2F9 /* RestaurantsListCoordinator.swift */; };
 		8B1BB33225FB787200FAB2F9 /* MapCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1BB33125FB787200FAB2F9 /* MapCoordinator.swift */; };
 		8B1BB33525FB788D00FAB2F9 /* FavouritesRestaurantsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1BB33425FB788D00FAB2F9 /* FavouritesRestaurantsCoordinator.swift */; };
 		8B1BB33825FB79EF00FAB2F9 /* RestaurantInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1BB33725FB79EF00FAB2F9 /* RestaurantInfoViewModel.swift */; };
 		8B1BB33D25FB854A00FAB2F9 /* RestaurantsNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1BB33C25FB854A00FAB2F9 /* RestaurantsNetworkService.swift */; };
 		8B1BB34025FB856000FAB2F9 /* ReviewNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1BB33F25FB856000FAB2F9 /* ReviewNetworkService.swift */; };
+		8B27DD3825FF5903008ABB7F /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 8B27DD3725FF5903008ABB7F /* .swiftlint.yml */; };
 		8B4906A925FA383B00736C0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4906A825FA383B00736C0B /* AppDelegate.swift */; };
-		8B4906AD25FA383B00736C0B /* ListRestautantsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4906AC25FA383B00736C0B /* ListRestautantsViewController.swift */; };
+		8B4906AD25FA383B00736C0B /* RestautantsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4906AC25FA383B00736C0B /* RestautantsListViewController.swift */; };
 		8B4906B025FA383B00736C0B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B4906AE25FA383B00736C0B /* Main.storyboard */; };
 		8B4906B225FA383F00736C0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B4906B125FA383F00736C0B /* Assets.xcassets */; };
 		8B4906B525FA383F00736C0B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B4906B325FA383F00736C0B /* LaunchScreen.storyboard */; };
@@ -39,18 +40,19 @@
 		8B1BB31B25FB73FD00FAB2F9 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		8B1BB31E25FB742500FAB2F9 /* FavouritesRestaurantsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesRestaurantsViewController.swift; sourceTree = "<group>"; };
 		8B1BB32125FB74DF00FAB2F9 /* RestaurantInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantInfoViewController.swift; sourceTree = "<group>"; };
-		8B1BB32425FB757800FAB2F9 /* ListRestaurantsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRestaurantsViewModel.swift; sourceTree = "<group>"; };
+		8B1BB32425FB757800FAB2F9 /* RestaurantsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsListViewModel.swift; sourceTree = "<group>"; };
 		8B1BB32725FB758C00FAB2F9 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		8B1BB32A25FB75A500FAB2F9 /* FavouritesRestaurantsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesRestaurantsViewModel.swift; sourceTree = "<group>"; };
-		8B1BB32E25FB785F00FAB2F9 /* ListRestaurantsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRestaurantsCoordinator.swift; sourceTree = "<group>"; };
+		8B1BB32E25FB785F00FAB2F9 /* RestaurantsListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsListCoordinator.swift; sourceTree = "<group>"; };
 		8B1BB33125FB787200FAB2F9 /* MapCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCoordinator.swift; sourceTree = "<group>"; };
 		8B1BB33425FB788D00FAB2F9 /* FavouritesRestaurantsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesRestaurantsCoordinator.swift; sourceTree = "<group>"; };
 		8B1BB33725FB79EF00FAB2F9 /* RestaurantInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantInfoViewModel.swift; sourceTree = "<group>"; };
 		8B1BB33C25FB854A00FAB2F9 /* RestaurantsNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsNetworkService.swift; sourceTree = "<group>"; };
 		8B1BB33F25FB856000FAB2F9 /* ReviewNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewNetworkService.swift; sourceTree = "<group>"; };
+		8B27DD3725FF5903008ABB7F /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		8B4906A525FA383B00736C0B /* restaurantsManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = restaurantsManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B4906A825FA383B00736C0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8B4906AC25FA383B00736C0B /* ListRestautantsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRestautantsViewController.swift; sourceTree = "<group>"; };
+		8B4906AC25FA383B00736C0B /* RestautantsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestautantsListViewController.swift; sourceTree = "<group>"; };
 		8B4906AF25FA383B00736C0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8B4906B125FA383F00736C0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8B4906B425FA383F00736C0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -82,7 +84,7 @@
 		8B1BB30C25FB5C7900FAB2F9 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				8B4906AC25FA383B00736C0B /* ListRestautantsViewController.swift */,
+				8B4906AC25FA383B00736C0B /* RestautantsListViewController.swift */,
 				8B1BB31B25FB73FD00FAB2F9 /* MapViewController.swift */,
 				8B1BB31E25FB742500FAB2F9 /* FavouritesRestaurantsViewController.swift */,
 				8B1BB32125FB74DF00FAB2F9 /* RestaurantInfoViewController.swift */,
@@ -94,7 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				8B1BB31725FB5D2800FAB2F9 /* MainCoordinator.swift */,
-				8B1BB32E25FB785F00FAB2F9 /* ListRestaurantsCoordinator.swift */,
+				8B1BB32E25FB785F00FAB2F9 /* RestaurantsListCoordinator.swift */,
 				8B1BB33125FB787200FAB2F9 /* MapCoordinator.swift */,
 				8B1BB33425FB788D00FAB2F9 /* FavouritesRestaurantsCoordinator.swift */,
 			);
@@ -113,7 +115,7 @@
 		8B1BB30F25FB5CA300FAB2F9 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				8B1BB32425FB757800FAB2F9 /* ListRestaurantsViewModel.swift */,
+				8B1BB32425FB757800FAB2F9 /* RestaurantsListViewModel.swift */,
 				8B1BB32725FB758C00FAB2F9 /* MapViewModel.swift */,
 				8B1BB32A25FB75A500FAB2F9 /* FavouritesRestaurantsViewModel.swift */,
 				8B1BB33725FB79EF00FAB2F9 /* RestaurantInfoViewModel.swift */,
@@ -141,6 +143,7 @@
 		8B49069C25FA383B00736C0B = {
 			isa = PBXGroup;
 			children = (
+				8B27DD3725FF5903008ABB7F /* .swiftlint.yml */,
 				8B4906A725FA383B00736C0B /* restaurantsManager */,
 				8B4906A625FA383B00736C0B /* Products */,
 				035F6D4378207F8BF1FA8B7B /* Pods */,
@@ -193,6 +196,7 @@
 				8B4906A225FA383B00736C0B /* Frameworks */,
 				8B4906A325FA383B00736C0B /* Resources */,
 				474EC80CB038FD5D51771CB3 /* [CP] Embed Pods Frameworks */,
+				8B27DD1F25FF485C008ABB7F /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -240,6 +244,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B27DD3825FF5903008ABB7F /* .swiftlint.yml in Resources */,
 				8B4906B525FA383F00736C0B /* LaunchScreen.storyboard in Resources */,
 				8B4906B225FA383F00736C0B /* Assets.xcassets in Resources */,
 				8B4906B025FA383B00736C0B /* Main.storyboard in Resources */,
@@ -288,6 +293,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		8B27DD1F25FF485C008ABB7F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -302,10 +324,10 @@
 				8B1BB34025FB856000FAB2F9 /* ReviewNetworkService.swift in Sources */,
 				8B1BB33525FB788D00FAB2F9 /* FavouritesRestaurantsCoordinator.swift in Sources */,
 				8B1BB32B25FB75A500FAB2F9 /* FavouritesRestaurantsViewModel.swift in Sources */,
-				8B1BB32525FB757800FAB2F9 /* ListRestaurantsViewModel.swift in Sources */,
+				8B1BB32525FB757800FAB2F9 /* RestaurantsListViewModel.swift in Sources */,
 				8B1BB31525FB5D0A00FAB2F9 /* Reviews.swift in Sources */,
-				8B1BB32F25FB785F00FAB2F9 /* ListRestaurantsCoordinator.swift in Sources */,
-				8B4906AD25FA383B00736C0B /* ListRestautantsViewController.swift in Sources */,
+				8B1BB32F25FB785F00FAB2F9 /* RestaurantsListCoordinator.swift in Sources */,
+				8B4906AD25FA383B00736C0B /* RestautantsListViewController.swift in Sources */,
 				8B1BB32825FB758C00FAB2F9 /* MapViewModel.swift in Sources */,
 				8B1BB33225FB787200FAB2F9 /* MapCoordinator.swift in Sources */,
 				8B1BB33825FB79EF00FAB2F9 /* RestaurantInfoViewModel.swift in Sources */,
@@ -461,7 +483,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = restaurantsManager/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -481,7 +503,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = restaurantsManager/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -19,18 +19,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
                 
         // Create the main controller to be used for app
-        let viewController = UIViewController()
+        let viewController = UINavigationController()
+        viewController.navigationBar.isHidden = true
         
         // Activate basic UIWindow
         window?.rootViewController = viewController
         window?.makeKeyAndVisible()
         
         // Send that into our coordinator so that it can display view controllers
-        coordinator = MainCoordinator(viewController: viewController)
+        coordinator = MainCoordinator(navigationController: viewController)
         
         // Tell the coordinator to take over control
         coordinator?.start()
         return true
     }
 }
-

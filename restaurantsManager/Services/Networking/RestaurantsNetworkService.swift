@@ -7,8 +7,6 @@
 
 import Alamofire
 
-import Alamofire
-
 class RestaurantsNetworkService {
     
     func getListOfRestaurants() {

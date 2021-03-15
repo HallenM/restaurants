@@ -9,5 +9,6 @@ target 'restaurantsManager' do
   pod 'RealmSwift', '~> 10.5.1'
   pod 'Kingfisher', '~> 6.0'
   pod 'MBProgressHUD', '~> 1.2'
+  pod 'SwiftLint'
 
 end

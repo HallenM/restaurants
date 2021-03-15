@@ -7,6 +7,12 @@
 
 import Foundation
 
+protocol FavouritesRestaurantsViewDelegateProtocol: class {
+    
+}
+
 class FavouritesRestaurantsViewModel {
     
+    weak var viewDelegate: FavouritesRestaurantsViewDelegateProtocol?
+    weak var actionDelegate: FavRestaurantsCoordDelegateProtocol?
 }

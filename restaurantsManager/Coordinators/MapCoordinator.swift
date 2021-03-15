@@ -7,21 +7,39 @@
 
 import UIKit
 
+protocol MapCoordinatorDelegateProtocol: class {
+    func showRestaurantInfo()
+}
+
 class MapCoordinator: Coordinator {
     
     var childCoordinators = [Coordinator]()
-    var viewController: UIViewController
+    var navigationController: UINavigationController?
     
     private var mapVM: MapViewModel?
     private var restaurantInfoVM: RestaurantInfoViewModel?
     
-    init(viewController: UIViewController) {
-        self.viewController = viewController
+    init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
     }
     
     func start() {
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         
-        //guard let
+        guard let mapVC = storyboard
+                .instantiateViewController(identifier: "MapViewController") as?
+                MapViewController else { return }
+        
+        mapVM = MapViewModel()
+        mapVM?.actionDelegate = self
+        restaurantInfoVM = RestaurantInfoViewModel()
+        
+        navigationController?.pushViewController(mapVC, animated: true)
+    }
+}
+
+extension MapCoordinator: MapCoordinatorDelegateProtocol {
+    func showRestaurantInfo() {
+        
     }
 }

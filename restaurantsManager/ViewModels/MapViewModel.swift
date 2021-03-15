@@ -7,6 +7,13 @@
 
 import Foundation
 
+protocol MapViewDelegateProtocol: class {
+    
+}
+
 class MapViewModel {
+    
+    weak var viewDelegate: MapViewDelegateProtocol?
+    weak var actionDelegate: MapCoordinatorDelegateProtocol?
     
 }
