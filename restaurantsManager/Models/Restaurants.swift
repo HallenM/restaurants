@@ -21,3 +21,7 @@ struct Location: Codable {
     let lan: Float?
     let lon: Float?
 }
+
+struct RestaurantsData: Decodable {
+    let restaurants: [Restaurant]
+}
