@@ -30,6 +30,10 @@ class MapCoordinator: Coordinator {
                 .instantiateViewController(identifier: "MapViewController") as?
                 MapViewController else { return }
         
+        // Add icon for tabBar tab
+        let icon = UITabBarItem(title: "Map", image: UIImage(named: "MapWithPin"), selectedImage: UIImage(named: "MapWithPinFill"))
+        mapVC.tabBarItem = icon
+        
         mapVM = MapViewModel()
         mapVM?.actionDelegate = self
         restaurantInfoVM = RestaurantInfoViewModel()

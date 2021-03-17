@@ -6,19 +6,19 @@
 //
 
 import UIKit
+import Kingfisher
 
 class RestaurantsListViewController: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     
-    // Cell reuse id (cells that scroll out of view can be reused)
-    let cellReuseIdentifier = "TableViewCell"
+    weak var viewModel: RestaurantsListViewModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
+        tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: "customCell")
         tableView.dataSource = self
         tableView.delegate = self
         
@@ -26,6 +26,12 @@ class RestaurantsListViewController: UIViewController {
         tableView.refreshControl = UIRefreshControl()
         tableView.refreshControl?.attributedTitle = NSAttributedString(string: "Updating...")
         tableView.refreshControl?.addTarget(self, action: #selector(handleRefreshControl), for: .valueChanged)
+        
+        viewModel?.initData(completion: {
+                                DispatchQueue.main.async {
+                                    self.tableView.reloadData()
+                                }
+        })
     }
     
     @objc func handleRefreshControl(sender: AnyObject) {
@@ -47,14 +53,24 @@ extension RestaurantsListViewController: UITableViewDelegate {
 extension RestaurantsListViewController: UITableViewDataSource {
     // Get number of rows in table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return viewModel?.getRestaurantsCount() ?? 0
     }
     
     // Create a cell for each table view row
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) else {
-            return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "customCell") as? CustomTableViewCell else {
+            return CustomTableViewCell()
         }
+        
+        cell.backgroundColor = UIColor(red: 255, green: 247, blue: 232, alpha: 100)
+        
+        let link = viewModel?.getRestaurantImage(index: indexPath.row)
+
+        let url = URL(string: link ?? "")
+        cell.restaurantImage?.kf.setImage(with: url)
+        
+        cell.restaurantName?.text = viewModel?.getRestaurantName(index: indexPath.row)
+        cell.restaurantDescription?.text = viewModel?.getRestaurantDescription(index: indexPath.row)
                 
         return cell
     }

@@ -13,7 +13,7 @@ enum NetworkServiceError: Error {
 
 class RestaurantsNetworkService {
     
-    func getRestaurantsList() {
+    func getRestaurantsList(completion: @escaping(_ restaurants: Result<[Restaurant], Error>) -> Void) {
         AF.request(
             "https://restaurants-f64d7.firebaseio.com/restaurants.json",
             method: .get)
@@ -21,12 +21,25 @@ class RestaurantsNetworkService {
             .responseJSON { responseJSON in
                 switch responseJSON.result {
                 case .success:
-                    let str = responseJSON.result
-                    print("Reeeeeesult:        \(str)")
-                    //completion(.success(categoriesData.categories))
+                    print("Reeeeeesult:        \(responseJSON.result)")
+                    
+                    do {
+                        guard let data = responseJSON.data else {
+                            completion(.failure(NetworkServiceError.noDataError(localizedError: "No data from server")))
+                            return
+                        }
+                        
+                        let restaurantsData = try JSONDecoder().decode([Restaurant].self, from: data)
+                        
+                        completion(.success(restaurantsData))
+                        
+                    } catch {
+                        print("Error::   \(error)")
+                        completion(.failure(error))
+                    }
                 case .failure(let error):
                     print("Fail_resp:  \(error)")
-                    //completion(.failure(error))
+                    completion(.failure(error))
                 }
             }
     }

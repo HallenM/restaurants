@@ -8,20 +8,16 @@
 import Foundation
 
 struct Restaurant: Decodable {
-    let id: Int
-    let name: String?
-    let description: String?
     let address: String?
+    let description: String?
+    let id: Int
+    let imagePaths: [String]?
     let location: Location?
-    let imagePath: [String]?
-    let raiting: Float?
+    let name: String?
+    let rating: Float?
 }
 
 struct Location: Codable {
-    let lan: Float?
+    let lat: Float?
     let lon: Float?
-}
-
-struct RestaurantsData: Decodable {
-    let restaurants: [Restaurant]
 }

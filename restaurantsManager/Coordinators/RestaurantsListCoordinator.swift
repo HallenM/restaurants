@@ -30,9 +30,14 @@ class RestaurantsListCoordinator: Coordinator {
                 .instantiateViewController(identifier: "RestaurantsListViewController") as?
                 RestaurantsListViewController else { return }
         
+        // Add icon for tabBar tab
+        let icon = UITabBarItem(title: "Restaurants List", image: UIImage(named: "List"), selectedImage: UIImage(named: "ListFill"))
+        restaurantsListVC.tabBarItem = icon
+        
         restaurantsListVM = RestaurantsListViewModel()
         restaurantsListVM?.actionDelegate = self
-        restaurantInfoVM = RestaurantInfoViewModel()
+        
+        restaurantsListVC.viewModel = restaurantsListVM
         
         navigationController?.pushViewController(restaurantsListVC, animated: true)
     }

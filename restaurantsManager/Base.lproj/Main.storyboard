@@ -13,35 +13,86 @@
         <!--Restaurants List View Controller-->
         <scene sceneID="iFE-za-Pas">
             <objects>
-                <viewController id="hCG-xe-pHB" customClass="RestaurantsListViewController" customModule="restaurantsManager" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RestaurantsListViewController" id="hCG-xe-pHB" customClass="RestaurantsListViewController" customModule="restaurantsManager" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NJN-KR-3KN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2n9-Fo-5gS">
-                                <rect key="frame" x="0.0" y="64" width="414" height="60"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="50"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1YN-eh-zKU">
-                                        <rect key="frame" x="15" y="13" width="384" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="1YN-eh-zKU">
+                                        <rect key="frame" x="15" y="5" width="384" height="40"/>
+                                        <color key="backgroundColor" red="1" green="0.9730539037" blue="0.92256873299999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="cEc-dm-V2T"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" red="1" green="0.96804819090000005" blue="0.91163624620000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="1YN-eh-zKU" firstAttribute="centerY" secondItem="2n9-Fo-5gS" secondAttribute="centerY" id="4mO-JR-Rle"/>
-                                    <constraint firstAttribute="height" constant="60" id="B5c-rr-b1x"/>
+                                    <constraint firstAttribute="height" constant="50" id="B5c-rr-b1x"/>
                                     <constraint firstAttribute="trailing" secondItem="1YN-eh-zKU" secondAttribute="trailing" constant="15" id="XMe-q2-HID"/>
                                     <constraint firstItem="1YN-eh-zKU" firstAttribute="leading" secondItem="2n9-Fo-5gS" secondAttribute="leading" constant="15" id="aN3-ZH-KcZ"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="d67-jY-Hq2">
-                                <rect key="frame" x="0.0" y="134" width="414" height="728"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <rect key="frame" x="0.0" y="124" width="414" height="738"/>
+                                <color key="backgroundColor" red="1" green="0.96804819090000005" blue="0.91163624620000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="customCell" id="u5W-vn-Tgr" customClass="CustomCell">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="160.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="u5W-vn-Tgr" id="PWp-WA-AhG" customClass="CustomTableViewCell">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="160.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ed2-XM-X2C">
+                                                    <rect key="frame" x="2" y="0.0" width="160" height="160.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="160" id="Tzn-za-r9m"/>
+                                                        <constraint firstAttribute="width" constant="160" id="dXh-a2-nPQ"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="Description" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pji-7m-M48">
+                                                    <rect key="frame" x="223.5" y="70" width="41.5" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="Name" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RPR-ie-RCU">
+                                                    <rect key="frame" x="172" y="70" width="41.5" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" red="1" green="0.96804819090000005" blue="0.91163624620000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="pji-7m-M48" firstAttribute="leading" secondItem="RPR-ie-RCU" secondAttribute="trailing" constant="10" id="4pg-b0-JXL"/>
+                                                <constraint firstItem="ed2-XM-X2C" firstAttribute="top" secondItem="PWp-WA-AhG" secondAttribute="top" id="9ru-nh-vGI"/>
+                                                <constraint firstItem="RPR-ie-RCU" firstAttribute="leading" secondItem="ed2-XM-X2C" secondAttribute="trailing" constant="10" id="DAI-1O-ihd"/>
+                                                <constraint firstAttribute="bottom" secondItem="ed2-XM-X2C" secondAttribute="bottom" id="IxO-hP-vnj"/>
+                                                <constraint firstItem="ed2-XM-X2C" firstAttribute="leading" secondItem="PWp-WA-AhG" secondAttribute="leading" constant="2" id="TAo-zk-7to"/>
+                                                <constraint firstItem="RPR-ie-RCU" firstAttribute="centerY" secondItem="PWp-WA-AhG" secondAttribute="centerY" id="gyn-mO-CbG"/>
+                                                <constraint firstItem="pji-7m-M48" firstAttribute="centerY" secondItem="PWp-WA-AhG" secondAttribute="centerY" id="s5o-W1-88w"/>
+                                            </constraints>
+                                            <connections>
+                                                <outlet property="restaurantDescription" destination="pji-7m-M48" id="Dtn-3Z-yEr"/>
+                                                <outlet property="restaurantImage" destination="ed2-XM-X2C" id="fS1-a6-Jko"/>
+                                                <outlet property="restaurantName" destination="RPR-ie-RCU" id="fwR-tv-eCs"/>
+                                            </connections>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="1" green="0.96804819090000005" blue="0.91163624620000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="M1d-2m-U4R"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="1" green="0.96804819090000005" blue="0.91163624620000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="M1d-2m-U4R" firstAttribute="trailing" secondItem="d67-jY-Hq2" secondAttribute="trailing" id="2Pl-qe-4fh"/>
                             <constraint firstItem="M1d-2m-U4R" firstAttribute="trailing" secondItem="2n9-Fo-5gS" secondAttribute="trailing" id="3QM-4Z-uZ6"/>
@@ -52,6 +103,9 @@
                             <constraint firstItem="M1d-2m-U4R" firstAttribute="bottom" secondItem="d67-jY-Hq2" secondAttribute="bottom" id="Vey-29-2tz"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="d67-jY-Hq2" id="Obu-IP-GSe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="byG-Co-tx2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -60,7 +114,7 @@
         <!--Restaurant Info View Controller-->
         <scene sceneID="onC-lU-NoX">
             <objects>
-                <viewController id="s4f-l1-rnQ" customClass="RestaurantInfoViewController" customModule="restaurantsManager" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RestaurantInfoViewController" id="s4f-l1-rnQ" customClass="RestaurantInfoViewController" customModule="restaurantsManager" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LiO-gS-7rc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="2000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -83,7 +137,7 @@
                                                     </label>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1us-yH-Y9Z">
                                                         <rect key="frame" x="169" y="40" width="237" height="159"/>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <color key="backgroundColor" red="1" green="0.96804819090000005" blue="0.91163624620000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="237" id="Mr1-vg-AdX"/>
                                                         </constraints>
@@ -101,7 +155,7 @@
                                                         </constraints>
                                                     </imageView>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" red="1" green="0.96804819090000005" blue="0.91163624620000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="Zmb-mB-Mp6" secondAttribute="trailing" constant="15" id="62d-rt-a9i"/>
                                                     <constraint firstItem="1us-yH-Y9Z" firstAttribute="top" secondItem="Zmb-mB-Mp6" secondAttribute="bottom" constant="9.5" id="8Bn-KN-Yhg"/>
@@ -119,7 +173,7 @@
                                                 <subviews>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Xqn-Y0-y5h">
                                                         <rect key="frame" x="3" y="30" width="404" height="105"/>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <color key="backgroundColor" red="1" green="0.96804819090000005" blue="0.91163624620000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="105" id="uRG-al-Rca"/>
                                                         </constraints>
@@ -164,7 +218,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" red="1" green="0.96804819090000005" blue="0.91163624620000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstItem="s6v-FK-psX" firstAttribute="leading" secondItem="uGY-Vq-1NK" secondAttribute="leading" constant="10" id="A25-fc-B35"/>
                                                     <constraint firstAttribute="height" constant="145" id="Ee5-iN-TJC"/>
@@ -192,7 +246,7 @@
                                                         <rect key="frame" x="8" y="29" width="114" height="119"/>
                                                     </mapView>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" red="1" green="0.96804819090000005" blue="0.91163624620000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="GyV-VT-NV5" secondAttribute="trailing" constant="8" id="9Dw-ps-er7"/>
                                                     <constraint firstAttribute="bottom" secondItem="PEW-eb-hyP" secondAttribute="bottom" constant="17" id="AO3-aL-Kmn"/>
@@ -205,7 +259,7 @@
                                                 </constraints>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" red="1" green="0.96804819090000005" blue="0.91163624620000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="iIc-VN-RdD" firstAttribute="top" secondItem="uGY-Vq-1NK" secondAttribute="bottom" constant="10" id="3xV-lK-Iv7"/>
                                             <constraint firstAttribute="trailing" secondItem="iIc-VN-RdD" secondAttribute="trailing" id="5Ox-gr-sTz"/>
@@ -232,7 +286,7 @@
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="kxH-gE-baN"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="1" green="0.96804819090000005" blue="0.91163624620000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="kxH-gE-baN" firstAttribute="bottom" secondItem="0nI-hO-9r0" secondAttribute="bottom" constant="31" id="AZn-ta-7sd"/>
                             <constraint firstItem="kxH-gE-baN" firstAttribute="trailing" secondItem="0nI-hO-9r0" secondAttribute="trailing" id="VEC-ZV-G38"/>
@@ -249,12 +303,21 @@
         <!--Map View Controller-->
         <scene sceneID="WSe-sY-FwC">
             <objects>
-                <viewController id="MRF-3L-gp0" customClass="MapViewController" customModule="restaurantsManager" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapViewController" id="MRF-3L-gp0" customClass="MapViewController" customModule="restaurantsManager" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="npe-Nx-m0i">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MapViewController" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bdv-oN-0LF">
+                                <rect key="frame" x="135" y="264" width="145" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vdF-6F-P1Z"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="1" green="0.96804819090000005" blue="0.91163624620000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TMh-tj-5ua" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -264,12 +327,21 @@
         <!--Favourites Restaurants View Controller-->
         <scene sceneID="LqG-it-iPK">
             <objects>
-                <viewController id="R2r-qo-OxF" customClass="FavouritesRestaurantsViewController" customModule="restaurantsManager" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FavouritesRestaurantsViewController" id="R2r-qo-OxF" customClass="FavouritesRestaurantsViewController" customModule="restaurantsManager" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pEe-Ot-ceb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="FavoutitesRestaurantsViewController" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Va2-h5-1y7">
+                                <rect key="frame" x="67" y="252" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="amz-w0-5Lj"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="1" green="0.96804819090000005" blue="0.91163624620000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RHl-Ie-CYl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -280,9 +352,6 @@
     <resources>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>

@@ -48,8 +48,10 @@ class MainCoordinator: Coordinator {
         // Get 3 VC for add to the stack of TabBarController
         guard let firstVC = restaurantsListCoordinator.navigationController?
                 .topViewController else { return }
+        
         guard let secondVC = mapCoordinator.navigationController?
                 .topViewController else { return }
+    
         guard let thirdVC = favouritesRestaurantsCoordinator.navigationController?
                 .topViewController else { return }
         

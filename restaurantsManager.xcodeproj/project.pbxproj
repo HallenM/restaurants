@@ -29,6 +29,7 @@
 		8B4906B025FA383B00736C0B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B4906AE25FA383B00736C0B /* Main.storyboard */; };
 		8B4906B225FA383F00736C0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B4906B125FA383F00736C0B /* Assets.xcassets */; };
 		8B4906B525FA383F00736C0B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B4906B325FA383F00736C0B /* LaunchScreen.storyboard */; };
+		8B693FEA26020F2C0047A602 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B693FE926020F2C0047A602 /* CustomTableViewCell.swift */; };
 		8B69B6AB2600A9EF00641D8C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B69B6AA2600A9EF00641D8C /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,7 @@
 		8B4906B125FA383F00736C0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8B4906B425FA383F00736C0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8B4906B625FA383F00736C0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B693FE926020F2C0047A602 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		8B69B6AA2600A9EF00641D8C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		BE5BCBD4225AA37CB6204C47 /* Pods-restaurantsManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-restaurantsManager.debug.xcconfig"; path = "Target Support Files/Pods-restaurantsManager/Pods-restaurantsManager.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -167,6 +169,7 @@
 			children = (
 				8B1BB30C25FB5C7900FAB2F9 /* Controllers */,
 				8B1BB30D25FB5C8D00FAB2F9 /* Coordinators */,
+				8B693FE826020EEE0047A602 /* CustomTableViewCell */,
 				8B1BB30E25FB5C9900FAB2F9 /* Models */,
 				8B1BB30F25FB5CA300FAB2F9 /* ViewModels */,
 				8B1BB31025FB5CB200FAB2F9 /* Services */,
@@ -177,6 +180,14 @@
 				8B4906B625FA383F00736C0B /* Info.plist */,
 			);
 			path = restaurantsManager;
+			sourceTree = "<group>";
+		};
+		8B693FE826020EEE0047A602 /* CustomTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				8B693FE926020F2C0047A602 /* CustomTableViewCell.swift */,
+			);
+			path = CustomTableViewCell;
 			sourceTree = "<group>";
 		};
 		E3659D438637C869B0D90802 /* Frameworks */ = {
@@ -325,6 +336,7 @@
 				8B1BB33D25FB854A00FAB2F9 /* RestaurantsNetworkService.swift in Sources */,
 				8B1BB32225FB74DF00FAB2F9 /* RestaurantInfoViewController.swift in Sources */,
 				8B1BB31825FB5D2800FAB2F9 /* MainCoordinator.swift in Sources */,
+				8B693FEA26020F2C0047A602 /* CustomTableViewCell.swift in Sources */,
 				8B1BB34025FB856000FAB2F9 /* ReviewNetworkService.swift in Sources */,
 				8B1BB33525FB788D00FAB2F9 /* FavouritesRestaurantsCoordinator.swift in Sources */,
 				8B1BB32B25FB75A500FAB2F9 /* FavouritesRestaurantsViewModel.swift in Sources */,
