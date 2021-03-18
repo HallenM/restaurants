@@ -27,20 +27,20 @@ class MainCoordinator: Coordinator {
     
     func start() {
         tabBarController = UITabBarController()
-        guard let tabBarController = tabBarController else { return }
-                
-        let navigationC = UINavigationController()
         
         // Create 3 coordinators, initialize their inner VCs and save in the stack
         // of appCoordinator
+        var navigationC = UINavigationController()
         let restaurantsListCoordinator = RestaurantsListCoordinator(navigationController: navigationC)
         restaurantsListCoordinator.start()
         childCoordinators.append(restaurantsListCoordinator)
         
+        navigationC = UINavigationController()
         let mapCoordinator = MapCoordinator(navigationController: navigationC)
         mapCoordinator.start()
         childCoordinators.append(mapCoordinator)
         
+        navigationC = UINavigationController()
         let favouritesRestaurantsCoordinator = FavouritesRestaurantsCoordinator(navigationController: navigationC)
         favouritesRestaurantsCoordinator.start()
         childCoordinators.append(favouritesRestaurantsCoordinator)
@@ -55,8 +55,9 @@ class MainCoordinator: Coordinator {
         guard let thirdVC = favouritesRestaurantsCoordinator.navigationController?
                 .topViewController else { return }
         
-        tabBarController.viewControllers = [firstVC, secondVC, thirdVC]
+        tabBarController?.viewControllers = [firstVC, secondVC, thirdVC]
         
+        guard let tabBarController = tabBarController else { return }        
         navigationController?.pushViewController(tabBarController, animated: false)
     }
 }

@@ -21,7 +21,6 @@ class RestaurantsNetworkService {
             .responseJSON { responseJSON in
                 switch responseJSON.result {
                 case .success:
-                    print("Reeeeeesult:        \(responseJSON.result)")
                     
                     do {
                         guard let data = responseJSON.data else {

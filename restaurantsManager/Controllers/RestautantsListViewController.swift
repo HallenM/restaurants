@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Kingfisher
 
 class RestaurantsListViewController: UIViewController {
     
@@ -18,7 +17,7 @@ class RestaurantsListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: "customCell")
+        tableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "customCell")
         tableView.dataSource = self
         tableView.delegate = self
         
@@ -48,6 +47,11 @@ extension RestaurantsListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }
+    
+    // Get the height to use for a row in a specified location.
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 160
+    }
 }
 
 extension RestaurantsListViewController: UITableViewDataSource {
@@ -62,15 +66,18 @@ extension RestaurantsListViewController: UITableViewDataSource {
             return CustomTableViewCell()
         }
         
-        cell.backgroundColor = UIColor(red: 255, green: 247, blue: 232, alpha: 100)
-        
         let link = viewModel?.getRestaurantImage(index: indexPath.row)
-
-        let url = URL(string: link ?? "")
-        cell.restaurantImage?.kf.setImage(with: url)
+        guard let url = URL(string: link ?? "") else {
+            return CustomTableViewCell()
+        }
+        guard let name = viewModel?.getRestaurantName(index: indexPath.row) else {
+            return CustomTableViewCell()
+        }
+        guard let description = viewModel?.getRestaurantDescription(index: indexPath.row)  else {
+            return CustomTableViewCell()
+        }
         
-        cell.restaurantName?.text = viewModel?.getRestaurantName(index: indexPath.row)
-        cell.restaurantDescription?.text = viewModel?.getRestaurantDescription(index: indexPath.row)
+        cell.customCell(cell: cell, imageURL: url, name: name, description: description)
                 
         return cell
     }
