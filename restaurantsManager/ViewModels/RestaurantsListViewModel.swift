@@ -19,6 +19,8 @@ class RestaurantsListViewModel {
     
     private var restaurantsList = [Restaurant]()
     
+    private var allRestaurants = [Restaurant]()
+    
     private let networkService: RestaurantsNetworkService = RestaurantsNetworkService()
     
     func initData(completion: @escaping () -> Void) {
@@ -30,8 +32,11 @@ class RestaurantsListViewModel {
             switch result {
             case .success(let restaurants):
                 self.restaurantsList = restaurants
-            case .failure(_):
+                self.allRestaurants = restaurants
+            case .failure(let error):
+                print("RestaurantsNetworkService Error: \(error)")
                 self.restaurantsList = [Restaurant]()
+                self.allRestaurants = [Restaurant]()
                 return
             }
             completion()
@@ -53,4 +58,43 @@ class RestaurantsListViewModel {
     func getRestaurantDescription(index: Int) -> String {
         return restaurantsList[index].description ?? ""
     }
+    
+    func didTapOnCell(with index: Int) {
+        actionDelegate?.showRestaurantInfo(restaurant: restaurantsList[index])
+    }
+    
+    func searchRestaurants(searchText: String, completion: @escaping () -> Void) {
+        var restaurants = [Restaurant]()
+        restaurantsList = allRestaurants
+        
+        if searchText != "" {
+            for restaurant in restaurantsList {
+                let regex = NSRegularExpression("[a-z0-9-]*\(searchText)[a-z0-9-]*", options: .caseInsensitive)
+                if regex.matches(restaurant.name ?? "") {
+                    restaurants.append(restaurant)
+                    if restaurants.count > 0 {
+                        restaurantsList = restaurants
+                    }
+                }
+            }
+        } else {
+            restaurantsList = allRestaurants
+        }
+        completion()
+    }
+}
+
+extension NSRegularExpression {
+    convenience init(_ pattern: String, options: NSRegularExpression.Options) {
+        do {
+            try self.init(pattern: pattern, options: options)
+        } catch {
+            preconditionFailure("Illegal regular expression: \(pattern).")
+        }
+    }
+    
+    func matches(_ string: String) -> Bool {
+            let range = NSRange(location: 0, length: string.utf16.count)
+            return firstMatch(in: string, options: [], range: range) != nil
+        }
 }

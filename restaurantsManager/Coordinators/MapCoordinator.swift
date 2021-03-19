@@ -36,7 +36,7 @@ class MapCoordinator: Coordinator {
         
         mapVM = MapViewModel()
         mapVM?.actionDelegate = self
-        restaurantInfoVM = RestaurantInfoViewModel()
+        //restaurantInfoVM = RestaurantInfoViewModel()
         
         navigationController?.pushViewController(mapVC, animated: true)
     }

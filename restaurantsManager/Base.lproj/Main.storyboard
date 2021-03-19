@@ -22,12 +22,12 @@
                                 <rect key="frame" x="0.0" y="64" width="414" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="1YN-eh-zKU">
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Searching.." textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="1YN-eh-zKU">
                                         <rect key="frame" x="15" y="5" width="384" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                                        <textInputTraits key="textInputTraits" spellCheckingType="yes" returnKeyType="search"/>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -43,6 +43,7 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="d67-jY-Hq2" id="Obu-IP-GSe"/>
+                        <outlet property="textField" destination="1YN-eh-zKU" id="U0S-FI-5cz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="byG-Co-tx2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -235,6 +236,12 @@
                         </constraints>
                     </view>
                     <size key="freeformSize" width="414" height="2000"/>
+                    <connections>
+                        <outlet property="addressTextField" destination="GyV-VT-NV5" id="h9a-n3-8IT"/>
+                        <outlet property="descriptionTextField" destination="1us-yH-Y9Z" id="Id4-jW-Np7"/>
+                        <outlet property="mainImage" destination="oeX-2K-JWQ" id="3Wr-4Q-6tG"/>
+                        <outlet property="nameTextField" destination="Zmb-mB-Mp6" id="ZKt-Xz-r4P"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="spd-vK-i7u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

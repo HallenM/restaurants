@@ -8,7 +8,7 @@
 import UIKit
 
 protocol RestaurantsListCoordinatorDelegateProtocol: class {
-    func showRestaurantInfo()
+    func showRestaurantInfo(restaurant: Restaurant)
 }
 
 class RestaurantsListCoordinator: Coordinator {
@@ -44,7 +44,16 @@ class RestaurantsListCoordinator: Coordinator {
 }
 
 extension RestaurantsListCoordinator: RestaurantsListCoordinatorDelegateProtocol {
-    func showRestaurantInfo() {
+    func showRestaurantInfo(restaurant: Restaurant) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         
+        guard let infoRestaurantVC = storyBoard
+                .instantiateViewController(identifier: "RestaurantInfoViewController") as? RestaurantInfoViewController else { return }
+        
+        restaurantInfoVM = RestaurantInfoViewModel(restaurant: restaurant)
+        
+        infoRestaurantVC.viewModel = restaurantInfoVM
+        
+        navigationController?.pushViewController(infoRestaurantVC, animated: true)
     }
 }

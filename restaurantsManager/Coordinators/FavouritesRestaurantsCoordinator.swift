@@ -36,7 +36,7 @@ class FavouritesRestaurantsCoordinator: Coordinator {
         
         favouritesRestaurantsVM = FavouritesRestaurantsViewModel()
         favouritesRestaurantsVM?.actionDelegate = self
-        restaurantInfoVM = RestaurantInfoViewModel()
+        //restaurantInfoVM = RestaurantInfoViewModel()
         
         navigationController?.pushViewController(favouritesRestaurantsVC, animated: true)
     }

@@ -6,24 +6,30 @@
 //
 
 import UIKit
+import Kingfisher
 
 class RestaurantInfoViewController: UIViewController {
     
-    let address = "г. Новосибирск, Русская, 11"
-    let descriptionPlace = "Надежный и верный ресторан, шеф иногда гавкает"
-    let id = 1
-    let imagePaths = [
-      "http://imgdepo.com/id/10430879.jpg",
-      "http://imgdepo.com/id/10430877.jpg"
-    ]
-    let latitude = 54.844446
-    let longitude = 83.03838
-    let name = "В гостях у Пса"
-    let rating = 4.3
+    @IBOutlet private weak var nameTextField: UILabel!
+    @IBOutlet private weak var descriptionTextField: UITextView!
+    @IBOutlet private weak var mainImage: UIImageView!
+    @IBOutlet private weak var addressTextField: UILabel!
+    
+    weak var viewModel: RestaurantInfoViewModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        nameTextField.text = viewModel?.getName()
+        
+        descriptionTextField.text = viewModel?.getDescription()
+        
+        let url = URL(string: viewModel?.getMainImage() ?? "")
+        mainImage.kf.setImage(with: url)
+        
+        let address = viewModel?.getAddress() ?? ""
+        addressTextField.text = addressTextField.text ?? "" + " " + address
+        
     }
 
 }
