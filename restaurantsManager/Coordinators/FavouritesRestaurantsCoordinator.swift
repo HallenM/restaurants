@@ -31,7 +31,9 @@ class FavouritesRestaurantsCoordinator: Coordinator {
                 FavouritesRestaurantsViewController else { return }
         
         // Add icon for tabBar tab
-        let icon = UITabBarItem(title: "Favourites Restaurants", image: UIImage(named: "FavoutritesMark"), selectedImage: UIImage(named: "FavoutritesMarkFill"))
+        let icon = UITabBarItem(title: "Favourites Restaurants",
+                                image: UIImage(named: "FavoutritesMark"),
+                                selectedImage: UIImage(named: "FavoutritesMarkFill"))
         favouritesRestaurantsVC.tabBarItem = icon
         
         favouritesRestaurantsVM = FavouritesRestaurantsViewModel()

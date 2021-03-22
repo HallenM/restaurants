@@ -26,13 +26,27 @@ class RestaurantInfoViewModel {
         return restaurant.description ?? ""
     }
     
-    func getImage() -> [String] {
+    func getImages() -> [String] {
         guard var array = restaurant.imagePaths else { return [String]() }
         array.remove(at: 0)
         return array
     }
     
+    func getImagesCount() -> Int {
+        guard var array = restaurant.imagePaths else { return 6 }
+        array.remove(at: 0)
+        return array.count
+    }
+    
     func getAddress() -> String {
         return restaurant.address ?? ""
+    }
+    
+    func getLocation() -> Location {
+        return restaurant.location ?? Location(lat: 0.0, lon: 0.0)
+    }
+    
+    func getRating() -> Float {
+        return restaurant.rating ?? 0.0
     }
 }

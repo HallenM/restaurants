@@ -43,6 +43,10 @@ class RestaurantsListViewModel {
         }
     }
     
+    func getRestaurant(index: Int) -> Restaurant {
+        return restaurantsList[index]
+    }
+    
     func getRestaurantsCount() -> Int {
         return restaurantsList.count
     }
@@ -60,7 +64,8 @@ class RestaurantsListViewModel {
     }
     
     func didTapOnCell(with index: Int) {
-        actionDelegate?.showRestaurantInfo(restaurant: restaurantsList[index])
+        let restaurant = getRestaurant(index: index)
+        actionDelegate?.showRestaurantInfo(restaurant: restaurant)
     }
     
     func searchRestaurants(searchText: String, completion: @escaping () -> Void) {

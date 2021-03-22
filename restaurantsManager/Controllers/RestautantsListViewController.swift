@@ -96,8 +96,7 @@ extension RestaurantsListViewController: RestaurantsListViewDelegateProtocol {
 extension RestaurantsListViewController: UITableViewDelegate {
     // Method to run when table view cell is tapped
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Cell: \(indexPath.row + 1), name: \(viewModel?.getRestaurantName(index: indexPath.row))")
-        self.navigationController?.isNavigationBarHidden = false
+        print("Cell: \(indexPath.row + 1), name: \(viewModel?.getRestaurant(index: indexPath.row))")
         viewModel?.didTapOnCell(with: indexPath.row)
     }
     

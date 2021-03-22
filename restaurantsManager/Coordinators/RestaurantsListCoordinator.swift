@@ -54,6 +54,7 @@ extension RestaurantsListCoordinator: RestaurantsListCoordinatorDelegateProtocol
         
         infoRestaurantVC.viewModel = restaurantInfoVM
         
+        navigationController?.isNavigationBarHidden = false
         navigationController?.pushViewController(infoRestaurantVC, animated: true)
     }
 }

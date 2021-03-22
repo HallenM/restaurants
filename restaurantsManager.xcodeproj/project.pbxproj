@@ -29,6 +29,8 @@
 		8B4906B025FA383B00736C0B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B4906AE25FA383B00736C0B /* Main.storyboard */; };
 		8B4906B225FA383F00736C0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B4906B125FA383F00736C0B /* Assets.xcassets */; };
 		8B4906B525FA383F00736C0B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B4906B325FA383F00736C0B /* LaunchScreen.storyboard */; };
+		8B67314B2608A20A0034517A /* CustomCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B6731492608A20A0034517A /* CustomCollectionViewCell.xib */; };
+		8B67314C2608A20B0034517A /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B67314A2608A20A0034517A /* CustomCollectionViewCell.swift */; };
 		8B69B6AB2600A9EF00641D8C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B69B6AA2600A9EF00641D8C /* MapKit.framework */; };
 		8BBEABE726036863008975AD /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BBEABE526036863008975AD /* CustomTableViewCell.xib */; };
 		8BBEABE826036863008975AD /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBEABE626036863008975AD /* CustomTableViewCell.swift */; };
@@ -60,6 +62,8 @@
 		8B4906B125FA383F00736C0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8B4906B425FA383F00736C0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8B4906B625FA383F00736C0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B6731492608A20A0034517A /* CustomCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCollectionViewCell.xib; sourceTree = "<group>"; };
+		8B67314A2608A20A0034517A /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		8B69B6AA2600A9EF00641D8C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		8BBEABE526036863008975AD /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
 		8BBEABE626036863008975AD /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
@@ -171,6 +175,7 @@
 			children = (
 				8B1BB30C25FB5C7900FAB2F9 /* Controllers */,
 				8B1BB30D25FB5C8D00FAB2F9 /* Coordinators */,
+				8B6731482608A13F0034517A /* CustomCollectionViewCell */,
 				8B693FE826020EEE0047A602 /* CustomTableViewCell */,
 				8B1BB30E25FB5C9900FAB2F9 /* Models */,
 				8B1BB30F25FB5CA300FAB2F9 /* ViewModels */,
@@ -182,6 +187,15 @@
 				8B4906B625FA383F00736C0B /* Info.plist */,
 			);
 			path = restaurantsManager;
+			sourceTree = "<group>";
+		};
+		8B6731482608A13F0034517A /* CustomCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				8B6731492608A20A0034517A /* CustomCollectionViewCell.xib */,
+				8B67314A2608A20A0034517A /* CustomCollectionViewCell.swift */,
+			);
+			path = CustomCollectionViewCell;
 			sourceTree = "<group>";
 		};
 		8B693FE826020EEE0047A602 /* CustomTableViewCell */ = {
@@ -263,6 +277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B27DD3825FF5903008ABB7F /* .swiftlint.yml in Resources */,
+				8B67314B2608A20A0034517A /* CustomCollectionViewCell.xib in Resources */,
 				8B4906B525FA383F00736C0B /* LaunchScreen.storyboard in Resources */,
 				8B4906B225FA383F00736C0B /* Assets.xcassets in Resources */,
 				8BBEABE726036863008975AD /* CustomTableViewCell.xib in Resources */,
@@ -342,6 +357,7 @@
 				8B1BB32225FB74DF00FAB2F9 /* RestaurantInfoViewController.swift in Sources */,
 				8B1BB31825FB5D2800FAB2F9 /* MainCoordinator.swift in Sources */,
 				8B1BB34025FB856000FAB2F9 /* ReviewNetworkService.swift in Sources */,
+				8B67314C2608A20B0034517A /* CustomCollectionViewCell.swift in Sources */,
 				8B1BB33525FB788D00FAB2F9 /* FavouritesRestaurantsCoordinator.swift in Sources */,
 				8B1BB32B25FB75A500FAB2F9 /* FavouritesRestaurantsViewModel.swift in Sources */,
 				8B1BB32525FB757800FAB2F9 /* RestaurantsListViewModel.swift in Sources */,
