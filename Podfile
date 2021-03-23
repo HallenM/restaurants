@@ -6,9 +6,9 @@ target 'restaurantsManager' do
 
   # Pods for restaurantsManager
   pod 'Alamofire', '~> 5.0'
-  pod 'RealmSwift', '~> 10.5.1'
   pod 'Kingfisher', '~> 6.0'
   pod 'MBProgressHUD', '~> 1.2'
   pod 'SwiftLint'
+  pod 'HCSStarRatingView', '~> 1.5'
 
 end

@@ -7,8 +7,19 @@
 
 import Foundation
 
+protocol RestaurantInfoViewDelegateProtocol: class {
+    
+}
+
 class RestaurantInfoViewModel {
+    
+    weak var viewDelegate: RestaurantInfoViewDelegateProtocol?
+    
     private let restaurant: Restaurant
+    
+    private var reviews = [Review]()
+    
+    private let networkService: ReviewNetworkService = ReviewNetworkService()
     
     init(restaurant: Restaurant) {
         self.restaurant = restaurant
@@ -26,16 +37,15 @@ class RestaurantInfoViewModel {
         return restaurant.description ?? ""
     }
     
-    func getImages() -> [String] {
-        guard var array = restaurant.imagePaths else { return [String]() }
-        array.remove(at: 0)
-        return array
+    func getImage(index: Int) -> String {
+        if getImagesCount() > index {
+            return restaurant.imagePaths?[index] ?? ""
+        }
+        return ""
     }
     
     func getImagesCount() -> Int {
-        guard var array = restaurant.imagePaths else { return 6 }
-        array.remove(at: 0)
-        return array.count
+        return restaurant.imagePaths?.count ?? 6
     }
     
     func getAddress() -> String {
