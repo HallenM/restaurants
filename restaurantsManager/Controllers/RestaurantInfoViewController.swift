@@ -18,6 +18,8 @@ class RestaurantInfoViewController: UIViewController {
     @IBOutlet private weak var addressTextField: UILabel!
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var mapView: MKMapView!
+    @IBOutlet private weak var ratingLabel: UILabel!
+    @IBOutlet private weak var ratingView: UIView!
     @IBOutlet private weak var buttonReview: UIView!
     @IBOutlet private weak var tableView: UITableView!
     
@@ -26,6 +28,30 @@ class RestaurantInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setGeneralInfo()
+        setGalleryInfo()
+        setMapAndAddressInfo()
+        setRatingInfo()
+        setReviewsInfo()
+    }
+    
+    @IBAction func addNewReview(_ sender: Any) {
+        print("Add new review")
+        // Open Modal Window
+        //viewModel?.didTapButton(controller: self.view)
+    }
+    
+    // Sender for refreshing data in table
+    @objc func handleRefreshControl(sender: AnyObject) {
+        viewModel?.getReviewsForTable(completion: {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                self.tableView.refreshControl?.endRefreshing()
+            }
+        })
+    }
+    
+    func setGeneralInfo() {
         // Set restaurant name
         nameTextField.text = viewModel?.getName()
         
@@ -41,13 +67,17 @@ class RestaurantInfoViewController: UIViewController {
         } else {
             mainImage.backgroundColor = .green
         }
-        
+    }
+    
+    func setGalleryInfo() {
         // Set photo collection for restaurant
         collectionView.register(UINib(nibName: "CustomCollectionViewCell", bundle: nil),
                                      forCellWithReuseIdentifier: "CustomCollectionViewCell")
         collectionView.dataSource = self
         collectionView.delegate = self
-        
+    }
+    
+    func setMapAndAddressInfo() {
         // Set restaurant pin on the mapView
         let annotation = MKPointAnnotation()
         let location = viewModel?.getLocation()
@@ -64,14 +94,69 @@ class RestaurantInfoViewController: UIViewController {
         // Set restaurant address
         let address = viewModel?.getAddress() ?? ""
         addressTextField.text = "\(addressTextField.text ?? "")  \(address)"
-        
-        // Set restaurant rating
-        let rating = viewModel?.getRating()
-        
     }
     
-    @IBAction func addNewReview(_ sender: Any) {
-        print("Add new review")
+    func setRatingInfo() {
+        // Set restaurant rating
+        guard let rating = viewModel?.getRating() else { return }
+        ratingLabel.text = "\(ratingLabel.text ?? "")  \(rating)"
+        
+        /*let starRatingView = HCSStarRatingView(
+            frame: CGRect(x: 10, y: 530, width: UIScreen.main.bounds.width - 30, height: 50))
+        starRatingView.tintColor = .systemYellow
+        starRatingView.allowsHalfStars = true
+        starRatingView.accurateHalfStars = true
+        starRatingView.isEnabled = true
+        starRatingView.maximumValue = 10
+        starRatingView.minimumValue = 0
+        starRatingView.value = CGFloat(rating)
+        ratingView.addSubview(starRatingView)*/
+    }
+    
+    func setReviewsInfo() {
+        // For list of reviews
+        tableView.register(UINib(nibName: "ReviewTableViewCell", bundle: nil), forCellReuseIdentifier: "reviewCell")
+        tableView.dataSource = self
+        tableView.delegate = self
+        
+        // Add refreshControll (TableView has own refreshControl)
+        tableView.refreshControl = UIRefreshControl()
+        tableView.refreshControl?.attributedTitle = NSAttributedString(string: "Updating...")
+        tableView.refreshControl?.addTarget(self, action: #selector(handleRefreshControl), for: .valueChanged)
+        
+        // Send request for VM to initialize data for table
+        viewModel?.initReviews(completion: {
+                                DispatchQueue.main.async {
+                                    self.tableView.reloadData()
+                                }
+        })
+    }
+}
+
+extension RestaurantInfoViewController: UITableViewDelegate {    
+    // Get the height to use for a row in a specified location.
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 140
+    }
+}
+
+extension RestaurantInfoViewController: UITableViewDataSource {
+    // Get number of rows in table view
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel?.getRviewsCount() ?? 0
+    }
+    
+    // Create a cell for each table view row
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "reviewCell") as? ReviewTableViewCell else {
+            return ReviewTableViewCell()
+        }
+        
+        guard let review = viewModel?.getReview(index: indexPath.row) else { return ReviewTableViewCell() }
+        
+        cell.customCell(cell: cell, review: review)
+                
+        return cell
     }
 }
 

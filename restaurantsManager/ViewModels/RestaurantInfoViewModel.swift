@@ -5,7 +5,7 @@
 //  Created by developer on 12.03.2021.
 //
 
-import Foundation
+import UIKit
 
 protocol RestaurantInfoViewDelegateProtocol: class {
     
@@ -15,14 +15,42 @@ class RestaurantInfoViewModel {
     
     weak var viewDelegate: RestaurantInfoViewDelegateProtocol?
     
+    weak var actionDelegate: RestaurantsListCoordinatorDelegateProtocol?
+    
     private let restaurant: Restaurant
     
     private var reviews = [Review]()
     
-    private let networkService: ReviewNetworkService = ReviewNetworkService()
+    private let networkService: ReviewsNetworkService = ReviewsNetworkService()
     
     init(restaurant: Restaurant) {
         self.restaurant = restaurant
+    }
+    
+    func initReviews(completion: @escaping () -> Void) {
+        getReviewsForTable(completion: completion)
+    }
+    
+    func getReviewsForTable(completion: @escaping () -> Void) {
+        self.networkService.getReviewsForRestaurant(restaurantId: restaurant.id, completion: { (result) in
+            switch result {
+            case .success(let reviews):
+                self.reviews = reviews
+            case .failure(let error):
+                print("RviewsNetworkService Error: \(error)")
+                self.reviews = [Review]()
+                return
+            }
+            completion()
+        })
+    }
+    
+    func getReview(index: Int) -> Review {
+        return reviews[index]
+    }
+    
+    func getRviewsCount() -> Int {
+        return reviews.count
     }
     
     func getName() -> String {
@@ -58,5 +86,9 @@ class RestaurantInfoViewModel {
     
     func getRating() -> Float {
         return restaurant.rating ?? 0.0
+    }
+    
+    func didTapButton(controller: UIViewController) {
+        actionDelegate?.showModalWindow(controller: controller)
     }
 }

@@ -9,6 +9,7 @@ import UIKit
 
 protocol RestaurantsListCoordinatorDelegateProtocol: class {
     func showRestaurantInfo(restaurant: Restaurant)
+    func showModalWindow(controller: UIViewController)
 }
 
 class RestaurantsListCoordinator: Coordinator {
@@ -51,10 +52,21 @@ extension RestaurantsListCoordinator: RestaurantsListCoordinatorDelegateProtocol
                 .instantiateViewController(identifier: "RestaurantInfoViewController") as? RestaurantInfoViewController else { return }
         
         restaurantInfoVM = RestaurantInfoViewModel(restaurant: restaurant)
+        restaurantInfoVM?.actionDelegate = self
         
         infoRestaurantVC.viewModel = restaurantInfoVM
         
         navigationController?.isNavigationBarHidden = false
         navigationController?.pushViewController(infoRestaurantVC, animated: true)
+    }
+    
+    func showModalWindow(controller: UIViewController) {
+        /*let modalVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ModalViewController") as! ModalViewController
+        let vc = navigationController?.topViewController
+        vc.addChildViewController(modalVC)
+        modalVC.view.frame = self.vc.frame
+        vc.addSubview(modalVC.view)
+                
+        modalVC.didMove(toParentViewController: self)*/
     }
 }
