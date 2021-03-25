@@ -54,14 +54,14 @@
             <objects>
                 <viewController storyboardIdentifier="RestaurantInfoViewController" id="s4f-l1-rnQ" customClass="RestaurantInfoViewController" customModule="restaurantsManager" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LiO-gS-7rc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="2000"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1260"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0nI-hO-9r0">
-                                <rect key="frame" x="0.0" y="13" width="414" height="1922"/>
+                                <rect key="frame" x="0.0" y="13" width="414" height="1193"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eqW-5x-ITc" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1500"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3gh-w8-y5U" userLabel="GeneralInfoView">
                                                 <rect key="frame" x="0.0" y="5" width="414" height="210"/>
@@ -194,7 +194,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sfc-gK-QBB" userLabel="ReviewView">
-                                                <rect key="frame" x="0.0" y="727" width="414" height="400"/>
+                                                <rect key="frame" x="0.0" y="727" width="414" height="465"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Комментарии:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yx4-3w-EoJ">
                                                         <rect key="frame" x="10" y="10" width="135" height="20"/>
@@ -214,13 +214,13 @@
                                                         </connections>
                                                     </button>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IAY-7i-ogr">
-                                                        <rect key="frame" x="0.0" y="45" width="414" height="355"/>
+                                                        <rect key="frame" x="0.0" y="45" width="414" height="420"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     </tableView>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="400" id="4L2-sh-ldu"/>
+                                                    <constraint firstAttribute="height" constant="465" id="4L2-sh-ldu"/>
                                                     <constraint firstAttribute="trailing" secondItem="yx4-3w-EoJ" secondAttribute="trailing" constant="269" id="4dV-pl-x3x"/>
                                                     <constraint firstItem="n80-10-MhH" firstAttribute="top" secondItem="Sfc-gK-QBB" secondAttribute="top" constant="5" id="BdP-yc-NOc"/>
                                                     <constraint firstItem="yx4-3w-EoJ" firstAttribute="leading" secondItem="Sfc-gK-QBB" secondAttribute="leading" constant="10" id="EUz-mq-CLM"/>
@@ -243,12 +243,12 @@
                                             <constraint firstAttribute="trailing" secondItem="uGY-Vq-1NK" secondAttribute="trailing" constant="2" id="Ern-mE-kSG"/>
                                             <constraint firstItem="uGY-Vq-1NK" firstAttribute="top" secondItem="3gh-w8-y5U" secondAttribute="bottom" constant="5" id="U0T-qQ-ffX"/>
                                             <constraint firstItem="Sfc-gK-QBB" firstAttribute="leading" secondItem="eqW-5x-ITc" secondAttribute="leading" id="W5n-3P-tmi"/>
-                                            <constraint firstAttribute="height" constant="1500" id="YXN-nr-iZk"/>
                                             <constraint firstItem="iIc-VN-RdD" firstAttribute="leading" secondItem="eqW-5x-ITc" secondAttribute="leading" id="Z4L-I7-Kcz"/>
                                             <constraint firstAttribute="trailing" secondItem="Sfc-gK-QBB" secondAttribute="trailing" id="ayp-AM-asq"/>
                                             <constraint firstItem="uGY-Vq-1NK" firstAttribute="leading" secondItem="eqW-5x-ITc" secondAttribute="leading" constant="2" id="ewt-uF-bjv"/>
                                             <constraint firstAttribute="trailing" secondItem="3gh-w8-y5U" secondAttribute="trailing" id="n9A-1y-2xk"/>
                                             <constraint firstItem="3gh-w8-y5U" firstAttribute="leading" secondItem="eqW-5x-ITc" secondAttribute="leading" id="ojt-KU-TZr"/>
+                                            <constraint firstAttribute="height" constant="1200" id="vCR-0j-RM8"/>
                                             <constraint firstItem="Sfc-gK-QBB" firstAttribute="top" secondItem="iIc-VN-RdD" secondAttribute="bottom" constant="7" id="xVd-nQ-d03"/>
                                         </constraints>
                                     </view>
@@ -267,13 +267,13 @@
                         <viewLayoutGuide key="safeArea" id="kxH-gE-baN"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="kxH-gE-baN" firstAttribute="bottom" secondItem="0nI-hO-9r0" secondAttribute="bottom" constant="31" id="AZn-ta-7sd"/>
+                            <constraint firstItem="kxH-gE-baN" firstAttribute="bottom" secondItem="0nI-hO-9r0" secondAttribute="bottom" constant="20" id="AZn-ta-7sd"/>
                             <constraint firstItem="kxH-gE-baN" firstAttribute="trailing" secondItem="0nI-hO-9r0" secondAttribute="trailing" id="VEC-ZV-G38"/>
                             <constraint firstItem="0nI-hO-9r0" firstAttribute="top" secondItem="kxH-gE-baN" secondAttribute="top" constant="-31" id="YxZ-Ux-zs5"/>
                             <constraint firstItem="0nI-hO-9r0" firstAttribute="leading" secondItem="kxH-gE-baN" secondAttribute="leading" id="fVq-u9-Pmt"/>
                         </constraints>
                     </view>
-                    <size key="freeformSize" width="414" height="2000"/>
+                    <size key="freeformSize" width="414" height="1260"/>
                     <connections>
                         <outlet property="addressTextField" destination="GyV-VT-NV5" id="h9a-n3-8IT"/>
                         <outlet property="buttonReview" destination="Sfc-gK-QBB" id="LzO-vd-Jmb"/>
@@ -357,6 +357,28 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bjQ-qq-vBw">
                                 <rect key="frame" x="66" y="236" width="282" height="425"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mbs-1M-NE9">
+                                        <rect key="frame" x="153" y="378" width="92" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Сохранить">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="saveReview:" destination="zYE-fN-qFk" eventType="touchUpInside" id="gi2-s5-zBf"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Esh-vX-fzV">
+                                        <rect key="frame" x="33" y="378" width="77" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Закрыть">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="closeWindow:" destination="zYE-fN-qFk" eventType="touchUpInside" id="vns-Fm-cbB"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                             </view>
                         </subviews>

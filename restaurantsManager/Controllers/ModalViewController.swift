@@ -16,4 +16,11 @@ class ModalViewController: UIViewController {
         
         newReview.layer.cornerRadius = 24
     }
+    
+    @IBAction func closeWindow(_ sender: Any) {
+        self.view.removeFromSuperview()
+    }
+    
+    @IBAction func saveReview(_ sender: Any) {
+    }
 }

@@ -8,14 +8,12 @@
 import UIKit
 
 protocol RestaurantInfoViewDelegateProtocol: class {
-    
+    func showModalWindow()
 }
 
 class RestaurantInfoViewModel {
     
     weak var viewDelegate: RestaurantInfoViewDelegateProtocol?
-    
-    weak var actionDelegate: RestaurantsListCoordinatorDelegateProtocol?
     
     private let restaurant: Restaurant
     
@@ -88,7 +86,13 @@ class RestaurantInfoViewModel {
         return restaurant.rating ?? 0.0
     }
     
-    func didTapButton(controller: UIViewController) {
-        actionDelegate?.showModalWindow(controller: controller)
+    func didTapButton() {
+        viewDelegate?.showModalWindow()
+    }
+    
+    func addReview(review: Review) {
+        // add to model
+        // post review in database 
+        // delegete adding new cell on the table
     }
 }

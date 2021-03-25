@@ -35,22 +35,6 @@ class RestaurantInfoViewController: UIViewController {
         setReviewsInfo()
     }
     
-    @IBAction func addNewReview(_ sender: Any) {
-        print("Add new review")
-        // Open Modal Window
-        //viewModel?.didTapButton(controller: self.view)
-    }
-    
-    // Sender for refreshing data in table
-    @objc func handleRefreshControl(sender: AnyObject) {
-        viewModel?.getReviewsForTable(completion: {
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-                self.tableView.refreshControl?.endRefreshing()
-            }
-        })
-    }
-    
     func setGeneralInfo() {
         // Set restaurant name
         nameTextField.text = viewModel?.getName()
@@ -131,13 +115,43 @@ class RestaurantInfoViewController: UIViewController {
                                 }
         })
     }
+    
+    @IBAction func addNewReview(_ sender: Any) {
+        // Open Modal Window
+        viewModel?.didTapButton()
+    }
+    
+    // Sender for refreshing data in table
+    @objc func handleRefreshControl(sender: AnyObject) {
+        viewModel?.getReviewsForTable(completion: {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                self.tableView.refreshControl?.endRefreshing()
+            }
+        })
+    }
 }
 
-extension RestaurantInfoViewController: UITableViewDelegate {    
-    // Get the height to use for a row in a specified location.
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 140
+extension RestaurantInfoViewController: RestaurantInfoViewDelegateProtocol {
+    func showModalWindow() {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        guard let modalVC = storyBoard
+                .instantiateViewController(identifier: "ModalViewController") as? ModalViewController else { return }
+        
+        self.addChild(modalVC)
+        modalVC.view.frame = self.view.frame
+        self.view.addSubview(modalVC.view)
+                
+        modalVC.didMove(toParent: self)
     }
+}
+
+extension RestaurantInfoViewController: UITableViewDelegate {
+    /*// Get the height to use for a row in a specified location.
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }*/
 }
 
 extension RestaurantInfoViewController: UITableViewDataSource {
