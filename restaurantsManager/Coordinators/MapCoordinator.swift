@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol MapCoordinatorDelegateProtocol: class {
-    func showRestaurantInfo()
-}
-
 class MapCoordinator: Coordinator {
     
     var childCoordinators = [Coordinator]()
@@ -36,14 +32,24 @@ class MapCoordinator: Coordinator {
         
         mapVM = MapViewModel()
         mapVM?.actionDelegate = self
-        //restaurantInfoVM = RestaurantInfoViewModel()
         
         navigationController?.pushViewController(mapVC, animated: true)
     }
 }
 
-extension MapCoordinator: MapCoordinatorDelegateProtocol {
-    func showRestaurantInfo() {
+extension MapCoordinator: RestaurantCoordinatorDelegateProtocol {
+    func showRestaurantInfo(restaurant: Restaurant) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         
+        guard let infoRestaurantVC = storyBoard
+                .instantiateViewController(identifier: "RestaurantInfoViewController") as? RestaurantInfoViewController else { return }
+            
+        restaurantInfoVM = RestaurantInfoViewModel(restaurant: restaurant)
+        restaurantInfoVM?.viewDelegate = infoRestaurantVC
+            
+        infoRestaurantVC.viewModel = restaurantInfoVM
+            
+        navigationController?.isNavigationBarHidden = false
+        navigationController?.pushViewController(infoRestaurantVC, animated: true)
     }
 }

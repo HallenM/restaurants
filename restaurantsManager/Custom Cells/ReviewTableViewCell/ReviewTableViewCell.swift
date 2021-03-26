@@ -20,13 +20,15 @@ class ReviewTableViewCell: UITableViewCell {
         
         if review.date != "" {
             guard let reviewDate = review.date else { return }
-            var index = reviewDate.index(reviewDate.startIndex, offsetBy: 10)
-            let date = reviewDate[..<index]
-            let indexTime = reviewDate.index(index, offsetBy: 9)
-            index = reviewDate.index(index, offsetBy: 1)
-            let time = reviewDate[index..<indexTime]
+            let dateFormatter = DateFormatter()
             
-            cell.date.text = "\(date);\(time)"
+            dateFormatter.dateFormat = "yyyy-MM-ddThh:mm:ss"
+            let date = dateFormatter.date(from: reviewDate)
+            
+            dateFormatter.dateFormat = "dd-MM-yyyy hh:mm:ss"
+            let dateString = dateFormatter.string(from: date ?? Date())
+            
+            cell.date.text = dateString
         } else {
             cell.date.text = review.date
         }

@@ -15,11 +15,13 @@ class RestaurantInfoViewController: UIViewController {
     @IBOutlet private weak var nameTextField: UILabel!
     @IBOutlet private weak var descriptionTextField: UITextView!
     @IBOutlet private weak var mainImage: UIImageView!
-    @IBOutlet private weak var addressTextField: UILabel!
+    
     @IBOutlet private weak var collectionView: UICollectionView!
+    
+    @IBOutlet private weak var addressTextField: UILabel!
+    @IBOutlet private weak var ratingView: HCSStarRatingView!
     @IBOutlet private weak var mapView: MKMapView!
-    @IBOutlet private weak var ratingLabel: UILabel!
-    @IBOutlet private weak var ratingView: UIView!
+    
     @IBOutlet private weak var buttonReview: UIView!
     @IBOutlet private weak var tableView: UITableView!
     
@@ -33,6 +35,8 @@ class RestaurantInfoViewController: UIViewController {
         setMapAndAddressInfo()
         setRatingInfo()
         setReviewsInfo()
+        
+        buttonReview.layer.cornerRadius = 5
     }
     
     func setGeneralInfo() {
@@ -83,18 +87,12 @@ class RestaurantInfoViewController: UIViewController {
     func setRatingInfo() {
         // Set restaurant rating
         guard let rating = viewModel?.getRating() else { return }
-        ratingLabel.text = "\(ratingLabel.text ?? "")  \(rating)"
-        
-        /*let starRatingView = HCSStarRatingView(
-            frame: CGRect(x: 10, y: 530, width: UIScreen.main.bounds.width - 30, height: 50))
-        starRatingView.tintColor = .systemYellow
-        starRatingView.allowsHalfStars = true
-        starRatingView.accurateHalfStars = true
-        starRatingView.isEnabled = true
-        starRatingView.maximumValue = 10
-        starRatingView.minimumValue = 0
-        starRatingView.value = CGFloat(rating)
-        ratingView.addSubview(starRatingView)*/
+        ratingView.tintColor = .systemYellow
+        ratingView.allowsHalfStars = true
+        ratingView.accurateHalfStars = true
+        ratingView.maximumValue = 5
+        ratingView.minimumValue = 0
+        ratingView.value = CGFloat(rating / 2)
     }
     
     func setReviewsInfo() {
@@ -138,12 +136,22 @@ extension RestaurantInfoViewController: RestaurantInfoViewDelegateProtocol {
         
         guard let modalVC = storyBoard
                 .instantiateViewController(identifier: "ModalViewController") as? ModalViewController else { return }
+        modalVC.modalPresentationStyle = .overFullScreen
         
-        self.addChild(modalVC)
-        modalVC.view.frame = self.view.frame
-        self.view.addSubview(modalVC.view)
-                
-        modalVC.didMove(toParent: self)
+        let id = viewModel?.getRestaurantID() ?? 0
+        let modalVM = ModalViewModel(restaurantId: id)
+        
+        modalVM.actionDelegate = viewModel
+        modalVM.viewDelegate = modalVC
+        
+        modalVC.viewModel = modalVM
+
+        self.present(modalVC, animated: true)
+    }
+    
+    func insertCell(index: Int) {
+        let indexPath = IndexPath(row: index, section: 0)
+        tableView.insertRows(at: [indexPath], with: .bottom)
     }
 }
 

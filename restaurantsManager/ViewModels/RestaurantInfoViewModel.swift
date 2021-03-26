@@ -9,6 +9,11 @@ import UIKit
 
 protocol RestaurantInfoViewDelegateProtocol: class {
     func showModalWindow()
+    func insertCell(index: Int)
+}
+
+protocol NewReviewDelegateProtocol: class {
+    func addNewReview(review: Review)
 }
 
 class RestaurantInfoViewModel {
@@ -86,13 +91,18 @@ class RestaurantInfoViewModel {
         return restaurant.rating ?? 0.0
     }
     
+    func getRestaurantID() -> Int {
+        return reviews[0].restaurantId
+    }
+    
     func didTapButton() {
         viewDelegate?.showModalWindow()
     }
-    
-    func addReview(review: Review) {
-        // add to model
-        // post review in database 
-        // delegete adding new cell on the table
+}
+
+extension RestaurantInfoViewModel: NewReviewDelegateProtocol {
+    func addNewReview(review: Review) {
+        reviews.insert(review, at: 0)
+        viewDelegate?.insertCell(index: 0)
     }
 }

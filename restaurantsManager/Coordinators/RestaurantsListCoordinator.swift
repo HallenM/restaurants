@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol RestaurantsListCoordinatorDelegateProtocol: class {
+protocol RestaurantCoordinatorDelegateProtocol: class {
     func showRestaurantInfo(restaurant: Restaurant)
 }
 
@@ -43,7 +43,7 @@ class RestaurantsListCoordinator: Coordinator {
     }
 }
 
-extension RestaurantsListCoordinator: RestaurantsListCoordinatorDelegateProtocol {
+extension RestaurantsListCoordinator: RestaurantCoordinatorDelegateProtocol {
     func showRestaurantInfo(restaurant: Restaurant) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         

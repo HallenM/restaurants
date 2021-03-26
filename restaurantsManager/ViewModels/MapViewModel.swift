@@ -14,6 +14,7 @@ protocol MapViewDelegateProtocol: class {
 class MapViewModel {
     
     weak var viewDelegate: MapViewDelegateProtocol?
-    weak var actionDelegate: MapCoordinatorDelegateProtocol?
+    
+    weak var actionDelegate: RestaurantCoordinatorDelegateProtocol?
     
 }

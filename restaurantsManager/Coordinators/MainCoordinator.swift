@@ -40,17 +40,11 @@ class MainCoordinator: Coordinator {
         mapCoordinator.start()
         childCoordinators.append(mapCoordinator)
         
-        navigationC = UINavigationController()
-        let favouritesRestaurantsCoordinator = FavouritesRestaurantsCoordinator(navigationController: navigationC)
-        favouritesRestaurantsCoordinator.start()
-        childCoordinators.append(favouritesRestaurantsCoordinator)
-        
         // Get 3 VC for add to the stack of TabBarController
         guard let firstVC = restaurantsListCoordinator.navigationController else { return }
         guard let secondVC = mapCoordinator.navigationController else { return }
-        guard let thirdVC = favouritesRestaurantsCoordinator.navigationController else { return }
         
-        tabBarController?.viewControllers = [firstVC, secondVC, thirdVC]
+        tabBarController?.viewControllers = [firstVC, secondVC]
         
         guard let tabBarController = tabBarController else { return }
         navigationController?.pushViewController(tabBarController, animated: false)

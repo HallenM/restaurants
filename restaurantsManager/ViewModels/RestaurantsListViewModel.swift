@@ -15,7 +15,7 @@ class RestaurantsListViewModel {
     
     weak var viewDelegate: RestaurantsListViewDelegateProtocol?
     
-    weak var actionDelegate: RestaurantsListCoordinatorDelegateProtocol?
+    weak var actionDelegate: RestaurantCoordinatorDelegateProtocol?
     
     private var restaurantsList = [Restaurant]()
     
