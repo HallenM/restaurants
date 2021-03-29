@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		40B55F20706BDA677C3989D6 /* Pods_restaurantsManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002D591A2658ED95C75A2F88 /* Pods_restaurantsManager.framework */; };
-		8B1BB31225FB5CFE00FAB2F9 /* Restaurants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1BB31125FB5CFE00FAB2F9 /* Restaurants.swift */; };
-		8B1BB31525FB5D0A00FAB2F9 /* Reviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1BB31425FB5D0A00FAB2F9 /* Reviews.swift */; };
+		8B1BB31225FB5CFE00FAB2F9 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1BB31125FB5CFE00FAB2F9 /* Restaurant.swift */; };
+		8B1BB31525FB5D0A00FAB2F9 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1BB31425FB5D0A00FAB2F9 /* Review.swift */; };
 		8B1BB31825FB5D2800FAB2F9 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1BB31725FB5D2800FAB2F9 /* MainCoordinator.swift */; };
 		8B1BB31C25FB73FD00FAB2F9 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1BB31B25FB73FD00FAB2F9 /* MapViewController.swift */; };
 		8B1BB32225FB74DF00FAB2F9 /* RestaurantInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1BB32125FB74DF00FAB2F9 /* RestaurantInfoViewController.swift */; };
@@ -40,8 +40,8 @@
 /* Begin PBXFileReference section */
 		002D591A2658ED95C75A2F88 /* Pods_restaurantsManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_restaurantsManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3069ABF9E94BDD04984BB036 /* Pods-restaurantsManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-restaurantsManager.release.xcconfig"; path = "Target Support Files/Pods-restaurantsManager/Pods-restaurantsManager.release.xcconfig"; sourceTree = "<group>"; };
-		8B1BB31125FB5CFE00FAB2F9 /* Restaurants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurants.swift; sourceTree = "<group>"; };
-		8B1BB31425FB5D0A00FAB2F9 /* Reviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reviews.swift; sourceTree = "<group>"; };
+		8B1BB31125FB5CFE00FAB2F9 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		8B1BB31425FB5D0A00FAB2F9 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		8B1BB31725FB5D2800FAB2F9 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		8B1BB31B25FB73FD00FAB2F9 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		8B1BB32125FB74DF00FAB2F9 /* RestaurantInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantInfoViewController.swift; sourceTree = "<group>"; };
@@ -118,8 +118,8 @@
 		8B1BB30E25FB5C9900FAB2F9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				8B1BB31125FB5CFE00FAB2F9 /* Restaurants.swift */,
-				8B1BB31425FB5D0A00FAB2F9 /* Reviews.swift */,
+				8B1BB31125FB5CFE00FAB2F9 /* Restaurant.swift */,
+				8B1BB31425FB5D0A00FAB2F9 /* Review.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -372,7 +372,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BBEABE826036863008975AD /* CustomTableViewCell.swift in Sources */,
-				8B1BB31225FB5CFE00FAB2F9 /* Restaurants.swift in Sources */,
+				8B1BB31225FB5CFE00FAB2F9 /* Restaurant.swift in Sources */,
 				8B935A34260B550E0075D36F /* ModalViewController.swift in Sources */,
 				8B1BB33D25FB854A00FAB2F9 /* RestaurantsNetworkService.swift in Sources */,
 				8B1BB32225FB74DF00FAB2F9 /* RestaurantInfoViewController.swift in Sources */,
@@ -381,7 +381,7 @@
 				8B67314C2608A20B0034517A /* CustomCollectionViewCell.swift in Sources */,
 				8B66CFF4260DED62001D0B85 /* ModalViewModel.swift in Sources */,
 				8B1BB32525FB757800FAB2F9 /* RestaurantsListViewModel.swift in Sources */,
-				8B1BB31525FB5D0A00FAB2F9 /* Reviews.swift in Sources */,
+				8B1BB31525FB5D0A00FAB2F9 /* Review.swift in Sources */,
 				8B1BB32F25FB785F00FAB2F9 /* RestaurantsListCoordinator.swift in Sources */,
 				8B4906AD25FA383B00736C0B /* RestautantsListViewController.swift in Sources */,
 				8B1BB32825FB758C00FAB2F9 /* MapViewModel.swift in Sources */,

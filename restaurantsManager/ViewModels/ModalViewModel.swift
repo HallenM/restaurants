@@ -11,14 +11,12 @@ class ModalViewModel {
     
     private var reviewAuthor: String? {
         didSet {
-            print("reviewAuthor: \(reviewAuthor)")
             haveFieldsData()
         }
     }
     
     private var reviewText: String? {
         didSet {
-            print("reviewText: \(reviewText)")
             haveFieldsData()
         }
     }
@@ -47,29 +45,44 @@ class ModalViewModel {
         return reviewAuthor ?? ""
     }
     
-    func setReviewAuthor(authorReview: String) {
-        self.reviewAuthor = authorReview
+    func setReviewAuthor(reviewAuthor: String) {
+        self.reviewAuthor = reviewAuthor
     }
     
     func getReviewText() -> String {
         return reviewText ?? ""
     }
     
-    func setReviewText(textReview: String) {
-        self.reviewText = textReview
+    func setReviewText(reviewText: String) {
+        self.reviewText = reviewText
     }
     
-    func didTapButton() {
+    func getRestaurantId() -> Int {
+        return restaurantId
+    }
+    
+    func didTapButtonAdd() {
         
         let date = Date()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd-MM-yyyy hh:mm:ss"
-        let dateString = dateFormatter.string(from: date)
         
-        let review = Review.init(restaurantId: restaurantId, author: reviewAuthor, reviewText: reviewText, date: dateString)
+        let review = Review(restaurantId: restaurantId, author: reviewAuthor ?? "", reviewText: reviewText ?? "", date: date)
         
-        // Add in database, if success -> addNewReview(review: review) else alert("something was wrong")
-        print("Review: \(review)")
-        actionDelegate?.addNewReview(review: review)
+        self.viewDelegate?.buttonEnabled(isEnabled: false)
+        networkService.addNewReview(review: review, completion: { (result) in
+            switch result {
+            case .success(let success):
+                if success {
+                    print("Review: \(review)")
+                    self.actionDelegate?.addNewReview(review: review)
+                    self.viewDelegate?.closeModalWindow()
+                }
+            case .failure(let error):
+                print("ReviewsNetworkService Error; AddingReview Error: \(error)")
+                self.viewDelegate?.errorAlert(title: "Error", message: "Review wasn`t added, please, try again.")
+                self.viewDelegate?.buttonEnabled(isEnabled: true)
+                
+                return
+            }
+        })
     }
 }

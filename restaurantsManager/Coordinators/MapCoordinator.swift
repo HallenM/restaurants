@@ -33,6 +33,8 @@ class MapCoordinator: Coordinator {
         mapVM = MapViewModel()
         mapVM?.actionDelegate = self
         
+        mapVC.viewModel = mapVM
+        
         navigationController?.pushViewController(mapVC, animated: true)
     }
 }

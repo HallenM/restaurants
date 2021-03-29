@@ -18,7 +18,13 @@ class ReviewTableViewCell: UITableViewCell {
         cell.authorName.text = review.author
         cell.reviewText.text = review.reviewText
         
-        if review.date != "" {
+        guard let reviewDate = review.date else { cell.date.text = ""; return }
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy hh:mm:ss"
+        let dateString = dateFormatter.string(from: reviewDate)
+        cell.date.text = dateString
+        
+       /* if review.date != "" {
             guard let reviewDate = review.date else { return }
             let dateFormatter = DateFormatter()
             
@@ -31,6 +37,6 @@ class ReviewTableViewCell: UITableViewCell {
             cell.date.text = dateString
         } else {
             cell.date.text = review.date
-        }
+        }*/
     }
 }

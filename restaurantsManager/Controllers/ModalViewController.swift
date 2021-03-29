@@ -1,5 +1,5 @@
 //
-//  PopViewController.swift
+//  ModalViewController.swift
 //  restaurantsManager
 //
 //  Created by developer on 24.03.2021.
@@ -9,6 +9,8 @@ import UIKit
 
 protocol ModalViewDelegateProtocol: class {
     func buttonEnabled(isEnabled: Bool)
+    func closeModalWindow()
+    func errorAlert(title: String, message: String)
 }
 
 class ModalViewController: UIViewController {
@@ -21,7 +23,7 @@ class ModalViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var reviewTextView: UITextView!
     
-    weak var viewModel: ModalViewModel?
+    var viewModel: ModalViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,16 +40,15 @@ class ModalViewController: UIViewController {
     }
     
     @objc func textFieldDidChange(_ sender: UITextField) {
-        viewModel?.setReviewAuthor(authorReview: nameTextField.text ?? "")
+        viewModel?.setReviewAuthor(reviewAuthor: nameTextField.text ?? "")
     }
     
-    @IBAction func closeWindow(_ sender: Any) {
-        view.removeFromSuperview()
+    @IBAction private func closeWindow(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func saveReview(_ sender: Any) {
-        viewModel?.didTapButton()
-        view.removeFromSuperview()
+    @IBAction private func saveReview(_ sender: Any) {
+        viewModel?.didTapButtonAdd()
     }
 }
 
@@ -59,12 +60,22 @@ class ModalViewController: UIViewController {
 
 extension ModalViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
-        viewModel?.setReviewText(textReview: reviewTextView.text)
+        viewModel?.setReviewText(reviewText: reviewTextView.text)
     }
 }
 
 extension ModalViewController: ModalViewDelegateProtocol {
     func buttonEnabled(isEnabled: Bool) {
         saveButton.isEnabled = isEnabled
+    }
+    
+    func closeModalWindow() {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func errorAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Close", style: .cancel, handler: nil))
+        self.present(alert, animated: true)
     }
 }

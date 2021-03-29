@@ -40,7 +40,7 @@ class RestaurantInfoViewModel {
             case .success(let reviews):
                 self.reviews = reviews
             case .failure(let error):
-                print("RviewsNetworkService Error: \(error)")
+                print("ReviewsNetworkService Error: \(error)")
                 self.reviews = [Review]()
                 return
             }

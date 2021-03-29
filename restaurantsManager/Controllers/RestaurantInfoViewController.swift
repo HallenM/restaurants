@@ -114,7 +114,7 @@ class RestaurantInfoViewController: UIViewController {
         })
     }
     
-    @IBAction func addNewReview(_ sender: Any) {
+    @IBAction private func addNewReview(_ sender: Any) {
         // Open Modal Window
         viewModel?.didTapButton()
     }
