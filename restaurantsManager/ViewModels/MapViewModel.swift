@@ -62,4 +62,19 @@ class MapViewModel {
     func getRestaurantAddress(index: Int) -> String {
         return restaurantsList[index].address ?? ""
     }
+    
+    func findRestaurantIndex(name: String) -> Int {
+        for i in 0..<restaurantsList.count {
+            if restaurantsList[i].name == name {
+                return i
+            }
+        }
+        return 0
+    }
+    
+    func tapInfoButton(name: String) {
+        let index = findRestaurantIndex(name: name)
+        let restaurant = getRestaurant(index: index)
+        actionDelegate?.showRestaurantInfo(restaurant: restaurant)
+    }
 }

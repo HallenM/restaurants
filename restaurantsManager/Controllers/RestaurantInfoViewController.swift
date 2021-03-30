@@ -37,6 +37,7 @@ class RestaurantInfoViewController: UIViewController {
         setReviewsInfo()
         
         buttonReview.layer.cornerRadius = 5
+        self.mapView.delegate = self
     }
     
     func setGeneralInfo() {
@@ -72,11 +73,12 @@ class RestaurantInfoViewController: UIViewController {
         let cllCoordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(location?.lat ?? 0.0),
                                                    longitude: CLLocationDegrees(location?.lon ?? 0.0))
         annotation.coordinate = cllCoordinate
+        annotation.title = viewModel?.getName()
         mapView.addAnnotation(annotation)
         
         // Zooming map
-        let region = MKCoordinateRegion(center: cllCoordinate, latitudinalMeters: cllCoordinate.latitude + 200,
-                                        longitudinalMeters: cllCoordinate.longitude + 200)
+        let region = MKCoordinateRegion(center: cllCoordinate, latitudinalMeters: cllCoordinate.latitude + 500,
+                                        longitudinalMeters: cllCoordinate.longitude + 500)
         mapView.setRegion(region, animated: true)
         
         // Set restaurant address
@@ -127,6 +129,20 @@ class RestaurantInfoViewController: UIViewController {
                 self.tableView.refreshControl?.endRefreshing()
             }
         })
+    }
+}
+
+extension RestaurantInfoViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation {
+            return nil
+        }
+        
+        let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "customAnnotation")
+        annotationView.image = UIImage(named: "Pin")
+        annotationView.canShowCallout = true
+        
+        return annotationView
     }
 }
 
