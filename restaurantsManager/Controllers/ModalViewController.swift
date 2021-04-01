@@ -30,7 +30,7 @@ class ModalViewController: UIViewController {
         
         saveButton.isEnabled = false
         
-        //nameTextField.delegate = self
+        nameTextField.delegate = self
         reviewTextView.delegate = self
         
         newReview.layer.cornerRadius = 24
@@ -52,15 +52,23 @@ class ModalViewController: UIViewController {
     }
 }
 
-/*extension ModalViewController: UITextFieldDelegate {
-    func textViewDidEndEditing(_ textView: UITextView) {
-        viewModel?.setReviewAuthor(authorReview: nameTextField.text ?? "")
+extension ModalViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        nameTextField.endEditing(true)
     }
-}*/
+}
 
 extension ModalViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         viewModel?.setReviewText(reviewText: reviewTextView.text)
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if text == "\n" {
+                textView.endEditing(true)
+                return false
+        }
+        return true
     }
 }
 

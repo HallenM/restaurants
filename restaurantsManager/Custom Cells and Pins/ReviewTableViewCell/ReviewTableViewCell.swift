@@ -23,20 +23,5 @@ class ReviewTableViewCell: UITableViewCell {
         dateFormatter.dateFormat = "dd-MM-yyyy hh:mm:ss"
         let dateString = dateFormatter.string(from: reviewDate)
         cell.date.text = dateString
-        
-       /* if review.date != "" {
-            guard let reviewDate = review.date else { return }
-            let dateFormatter = DateFormatter()
-            
-            dateFormatter.dateFormat = "yyyy-MM-ddThh:mm:ss"
-            let date = dateFormatter.date(from: reviewDate)
-            
-            dateFormatter.dateFormat = "dd-MM-yyyy hh:mm:ss"
-            let dateString = dateFormatter.string(from: date ?? Date())
-            
-            cell.date.text = dateString
-        } else {
-            cell.date.text = review.date
-        }*/
     }
 }

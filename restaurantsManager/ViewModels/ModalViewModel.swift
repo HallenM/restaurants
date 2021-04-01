@@ -72,7 +72,6 @@ class ModalViewModel {
             switch result {
             case .success(let success):
                 if success {
-                    print("Review: \(review)")
                     self.actionDelegate?.addNewReview(review: review)
                     self.viewDelegate?.closeModalWindow()
                 }

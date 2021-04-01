@@ -26,6 +26,16 @@ class RestaurantInfoViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
     
     weak var viewModel: RestaurantInfoViewModel?
+    
+    private var isChangeColor: Bool = false {
+        didSet {
+            if isChangeColor {
+                self.navigationItem.rightBarButtonItem?.image = UIImage(named: "StarFill")
+            } else {
+                self.navigationItem.rightBarButtonItem?.image = UIImage(named: "Star")
+            }
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +48,22 @@ class RestaurantInfoViewController: UIViewController {
         
         buttonReview.layer.cornerRadius = 5
         self.mapView.delegate = self
+        
+        // Add button for adding to favourite
+        let barButton = UIBarButtonItem( image: UIImage(named: "Star"),
+                                         style: .plain, target: self,
+                                         action: #selector(addRestaurantToFavourite))
+        self.navigationItem.rightBarButtonItem = barButton
+        checkingFavouritesList()
+    }
+    
+    @objc func addRestaurantToFavourite(sender: AnyObject) {
+        print("Add Restaurant To Favourite Restaurants")
+        isChangeColor = !isChangeColor
+    }
+    
+    func checkingFavouritesList() {
+        
     }
     
     func setGeneralInfo() {
@@ -172,10 +198,6 @@ extension RestaurantInfoViewController: RestaurantInfoViewDelegateProtocol {
 }
 
 extension RestaurantInfoViewController: UITableViewDelegate {
-    /*// Get the height to use for a row in a specified location.
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
-    }*/
 }
 
 extension RestaurantInfoViewController: UITableViewDataSource {
