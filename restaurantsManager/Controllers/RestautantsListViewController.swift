@@ -31,12 +31,22 @@ class RestaurantsListViewController: UIViewController {
         tableView.refreshControl?.attributedTitle = NSAttributedString(string: "Updating...")
         tableView.refreshControl?.addTarget(self, action: #selector(handleRefreshControl), for: .valueChanged)
         
-        // Send request for VM to initialize data for table
-        viewModel?.initData(completion: {
-                                DispatchQueue.main.async {
-                                    self.tableView.reloadData()
-                                }
-        })
+        // Checking avaliable of network
+        if Connectivity.isConnectedToInternet {
+            // Send request for VM to initialize data for table
+            viewModel?.initData(haveInternet: true, completion: {
+                                    DispatchQueue.main.async {
+                                        self.tableView.reloadData()
+                                    }
+            })
+         } else {
+            // Send request for VM to initialize data for table
+            viewModel?.initData(haveInternet: false, completion: {
+                                    DispatchQueue.main.async {
+                                        self.tableView.reloadData()
+                                    }
+            })
+        }
         
         textField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         textField.addTarget(self, action: #selector(openKeyBoard), for: .touchDown)
@@ -50,12 +60,22 @@ class RestaurantsListViewController: UIViewController {
     
     // Sender for refreshing data in table
     @objc func handleRefreshControl(sender: AnyObject) {
-        viewModel?.getDataForTable(completion: {
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-                self.tableView.refreshControl?.endRefreshing()
-            }
-        })
+        // Checking avaliable of network
+        if Connectivity.isConnectedToInternet {
+            viewModel?.getDataForTable(completion: {
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                    self.tableView.refreshControl?.endRefreshing()
+                }
+            })
+         } else {
+            viewModel?.getSavedDataForTable(completion: {
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                    self.tableView.refreshControl?.endRefreshing()
+                }
+            })
+        }
     }
     
     // Sender for textField text changing

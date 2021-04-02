@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		40B55F20706BDA677C3989D6 /* Pods_restaurantsManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002D591A2658ED95C75A2F88 /* Pods_restaurantsManager.framework */; };
+		8B0A7A3C261720A900BF639C /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0A7A3B261720A500BF639C /* Connectivity.swift */; };
 		8B1BB31225FB5CFE00FAB2F9 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1BB31125FB5CFE00FAB2F9 /* Restaurant.swift */; };
 		8B1BB31525FB5D0A00FAB2F9 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1BB31425FB5D0A00FAB2F9 /* Review.swift */; };
 		8B1BB31825FB5D2800FAB2F9 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1BB31725FB5D2800FAB2F9 /* MainCoordinator.swift */; };
@@ -40,6 +41,7 @@
 /* Begin PBXFileReference section */
 		002D591A2658ED95C75A2F88 /* Pods_restaurantsManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_restaurantsManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3069ABF9E94BDD04984BB036 /* Pods-restaurantsManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-restaurantsManager.release.xcconfig"; path = "Target Support Files/Pods-restaurantsManager/Pods-restaurantsManager.release.xcconfig"; sourceTree = "<group>"; };
+		8B0A7A3B261720A500BF639C /* Connectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
 		8B1BB31125FB5CFE00FAB2F9 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		8B1BB31425FB5D0A00FAB2F9 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		8B1BB31725FB5D2800FAB2F9 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 			children = (
 				8B1BB31125FB5CFE00FAB2F9 /* Restaurant.swift */,
 				8B1BB31425FB5D0A00FAB2F9 /* Review.swift */,
+				8B0A7A3B261720A500BF639C /* Connectivity.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -391,6 +394,7 @@
 				8B1BB32525FB757800FAB2F9 /* RestaurantsListViewModel.swift in Sources */,
 				8B1BB31525FB5D0A00FAB2F9 /* Review.swift in Sources */,
 				8B1BB32F25FB785F00FAB2F9 /* RestaurantsListCoordinator.swift in Sources */,
+				8B0A7A3C261720A900BF639C /* Connectivity.swift in Sources */,
 				8B4906AD25FA383B00736C0B /* RestautantsListViewController.swift in Sources */,
 				8B1BB32825FB758C00FAB2F9 /* MapViewModel.swift in Sources */,
 				8B1BB33225FB787200FAB2F9 /* MapCoordinator.swift in Sources */,

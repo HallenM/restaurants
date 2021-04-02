@@ -48,11 +48,92 @@ class RestaurantInfoViewModel {
         })
     }
     
+    func addRestaurantToStorage() {
+        let defaults = UserDefaults.standard
+        if let data = defaults.value(forKey: "SavedRestaurants") as? Data {
+            if var array = try? PropertyListDecoder().decode([Restaurant].self, from: data) {
+                array.append(restaurant)
+                
+                if let savedArray = try? PropertyListEncoder().encode(array) {
+                    defaults.set(savedArray, forKey: "SavedRestaurants")
+                }
+            }
+        } else {
+            var array = [Restaurant]()
+            array.append(restaurant)
+            
+            if let savedArray = try? PropertyListEncoder().encode(array) {
+                defaults.set(savedArray, forKey: "SavedRestaurants")
+            }
+        }
+    }
+    
+    func delRestaurantfromStorage() {
+        let defaults = UserDefaults.standard
+        if let data = defaults.value(forKey: "SavedRestaurants") as? Data {
+            if var array = try? PropertyListDecoder().decode([Restaurant].self, from: data) {
+                // Searching equal structures
+                for i in 0..<array.count {
+                    if equalValues(item: array[i]) {
+                        array.remove(at: i)
+                        break
+                    }
+                }
+                
+                if let savedArray = try? PropertyListEncoder().encode(array) {
+                    defaults.set(savedArray, forKey: "SavedRestaurants")
+                }
+            }
+        } else {
+            let array = [Restaurant]()
+            
+            if let savedArray = try? PropertyListEncoder().encode(array) {
+                defaults.set(savedArray, forKey: "SavedRestaurants")
+            }
+        }
+    }
+    
+    func equalValues(item: Restaurant) -> Bool {
+        if item.address == restaurant.address {
+            if item.description == restaurant.description {
+                if item.id == restaurant.id {
+                    if item.imagePaths == restaurant.imagePaths {
+                        if item.location?.lat == restaurant.location?.lat {
+                            if item.location?.lon == restaurant.location?.lon {
+                                if item.name == restaurant.name {
+                                    if item.rating == restaurant.rating {
+                                        return true
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return false
+    }
+    
+    func checkingFavouritesList() -> Bool {
+        let defaults = UserDefaults.standard
+        if let data = defaults.value(forKey: "SavedRestaurants") as? Data {
+            if let array = try? PropertyListDecoder().decode([Restaurant].self, from: data) {
+                // Searching equal structures
+                for i in 0..<array.count {
+                    if equalValues(item: array[i]) {
+                        return true
+                    }
+                }
+            }
+        }
+        return false
+    }
+    
     func getReview(index: Int) -> Review {
         return reviews[index]
     }
     
-    func getRviewsCount() -> Int {
+    func getReviewsCount() -> Int {
         return reviews.count
     }
     

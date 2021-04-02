@@ -23,8 +23,12 @@ class RestaurantsListViewModel {
     
     private let networkService: RestaurantsNetworkService = RestaurantsNetworkService()
     
-    func initData(completion: @escaping () -> Void) {
-        getDataForTable(completion: completion)
+    func initData(haveInternet: Bool, completion: @escaping () -> Void) {
+        if haveInternet {
+            getDataForTable(completion: completion)
+        } else {
+            getSavedDataForTable(completion: completion)
+        }
     }
     
     func getDataForTable(completion: @escaping () -> Void) {
@@ -41,6 +45,21 @@ class RestaurantsListViewModel {
             }
             completion()
         }
+    }
+    
+    func getSavedDataForTable(completion: @escaping () -> Void) {
+        let defaults = UserDefaults.standard
+        if let data = defaults.value(forKey: "SavedRestaurants") as? Data {
+            if let array = try? PropertyListDecoder().decode([Restaurant].self, from: data) {
+                self.restaurantsList = array
+                self.allRestaurants = array
+            }
+        } else {
+            let array = [Restaurant]()
+            self.restaurantsList = array
+            self.allRestaurants = array
+        }
+        completion()
     }
     
     func getRestaurant(index: Int) -> Restaurant {

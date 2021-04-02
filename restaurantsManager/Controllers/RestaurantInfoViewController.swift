@@ -24,12 +24,13 @@ class RestaurantInfoViewController: UIViewController {
     
     @IBOutlet private weak var buttonReview: UIView!
     @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var reviewView: UIView!
     
     weak var viewModel: RestaurantInfoViewModel?
     
-    private var isChangeColor: Bool = false {
+    private var isFillStar: Bool = false {
         didSet {
-            if isChangeColor {
+            if isFillStar {
                 self.navigationItem.rightBarButtonItem?.image = UIImage(named: "StarFill")
             } else {
                 self.navigationItem.rightBarButtonItem?.image = UIImage(named: "Star")
@@ -44,7 +45,14 @@ class RestaurantInfoViewController: UIViewController {
         setGalleryInfo()
         setMapAndAddressInfo()
         setRatingInfo()
-        setReviewsInfo()
+        
+        // Checking avaliable of network
+        if Connectivity.isConnectedToInternet {
+            reviewView.isHidden = false
+            setReviewsInfo()
+         } else {
+            reviewView.isHidden = true
+        }
         
         buttonReview.layer.cornerRadius = 5
         self.mapView.delegate = self
@@ -52,18 +60,24 @@ class RestaurantInfoViewController: UIViewController {
         // Add button for adding to favourite
         let barButton = UIBarButtonItem( image: UIImage(named: "Star"),
                                          style: .plain, target: self,
-                                         action: #selector(addRestaurantToFavourite))
+                                         action: #selector(addOrDelRestaurantToFavourite))
         self.navigationItem.rightBarButtonItem = barButton
-        checkingFavouritesList()
-    }
-    
-    @objc func addRestaurantToFavourite(sender: AnyObject) {
-        print("Add Restaurant To Favourite Restaurants")
-        isChangeColor = !isChangeColor
-    }
-    
-    func checkingFavouritesList() {
         
+        let check = viewModel?.checkingFavouritesList() ?? false
+        if check {
+            isFillStar = true
+        } else {
+            isFillStar = false
+        }
+    }
+    
+    @objc func addOrDelRestaurantToFavourite(sender: AnyObject) {        
+        if isFillStar { // delete from storage
+            viewModel?.delRestaurantfromStorage()
+        } else { // save to storage
+            viewModel?.addRestaurantToStorage()
+        }
+        isFillStar = !isFillStar
     }
     
     func setGeneralInfo() {
@@ -203,7 +217,7 @@ extension RestaurantInfoViewController: UITableViewDelegate {
 extension RestaurantInfoViewController: UITableViewDataSource {
     // Get number of rows in table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel?.getRviewsCount() ?? 0
+        return viewModel?.getReviewsCount() ?? 0
     }
     
     // Create a cell for each table view row

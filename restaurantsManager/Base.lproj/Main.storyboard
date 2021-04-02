@@ -290,6 +290,7 @@
                         <outlet property="mapView" destination="PEW-eb-hyP" id="iyG-ee-Fq6"/>
                         <outlet property="nameTextField" destination="Zmb-mB-Mp6" id="ZKt-Xz-r4P"/>
                         <outlet property="ratingView" destination="vht-qe-INy" id="Ns5-Hd-1XL"/>
+                        <outlet property="reviewView" destination="Sfc-gK-QBB" id="WDR-t4-aZZ"/>
                         <outlet property="tableView" destination="IAY-7i-ogr" id="7jj-Iv-yts"/>
                     </connections>
                 </viewController>

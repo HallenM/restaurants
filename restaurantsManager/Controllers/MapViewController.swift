@@ -18,10 +18,18 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Send request for VM to initialize data for table
-        viewModel?.initData(completion: {
-            self.setRestaurantsOnMap()
-            })
+        // Checking avaliable of network
+        if Connectivity.isConnectedToInternet {
+            // Send request for VM to initialize data for map
+            viewModel?.initData(haveInternet: true, completion: {
+                self.setRestaurantsOnMap()
+                })
+         } else {
+            // Send request for VM to initialize data for map
+            viewModel?.initData(haveInternet: false, completion: {
+                self.setRestaurantsOnMap()
+                })
+        }
         
         self.mapView.delegate = self
     }
