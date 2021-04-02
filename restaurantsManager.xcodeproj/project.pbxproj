@@ -3,30 +3,74 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		40B55F20706BDA677C3989D6 /* Pods_restaurantsManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002D591A2658ED95C75A2F88 /* Pods_restaurantsManager.framework */; };
+		8B0A7A3C261720A900BF639C /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0A7A3B261720A500BF639C /* Connectivity.swift */; };
+		8B1BB31225FB5CFE00FAB2F9 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1BB31125FB5CFE00FAB2F9 /* Restaurant.swift */; };
+		8B1BB31525FB5D0A00FAB2F9 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1BB31425FB5D0A00FAB2F9 /* Review.swift */; };
+		8B1BB31825FB5D2800FAB2F9 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1BB31725FB5D2800FAB2F9 /* MainCoordinator.swift */; };
+		8B1BB31C25FB73FD00FAB2F9 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1BB31B25FB73FD00FAB2F9 /* MapViewController.swift */; };
+		8B1BB32225FB74DF00FAB2F9 /* RestaurantInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1BB32125FB74DF00FAB2F9 /* RestaurantInfoViewController.swift */; };
+		8B1BB32525FB757800FAB2F9 /* RestaurantsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1BB32425FB757800FAB2F9 /* RestaurantsListViewModel.swift */; };
+		8B1BB32825FB758C00FAB2F9 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1BB32725FB758C00FAB2F9 /* MapViewModel.swift */; };
+		8B1BB32F25FB785F00FAB2F9 /* RestaurantsListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1BB32E25FB785F00FAB2F9 /* RestaurantsListCoordinator.swift */; };
+		8B1BB33225FB787200FAB2F9 /* MapCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1BB33125FB787200FAB2F9 /* MapCoordinator.swift */; };
+		8B1BB33825FB79EF00FAB2F9 /* RestaurantInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1BB33725FB79EF00FAB2F9 /* RestaurantInfoViewModel.swift */; };
+		8B1BB33D25FB854A00FAB2F9 /* RestaurantsNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1BB33C25FB854A00FAB2F9 /* RestaurantsNetworkService.swift */; };
+		8B1BB34025FB856000FAB2F9 /* ReviewsNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1BB33F25FB856000FAB2F9 /* ReviewsNetworkService.swift */; };
+		8B27DD3825FF5903008ABB7F /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 8B27DD3725FF5903008ABB7F /* .swiftlint.yml */; };
 		8B4906A925FA383B00736C0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4906A825FA383B00736C0B /* AppDelegate.swift */; };
-		8B4906AB25FA383B00736C0B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4906AA25FA383B00736C0B /* SceneDelegate.swift */; };
-		8B4906AD25FA383B00736C0B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4906AC25FA383B00736C0B /* ViewController.swift */; };
+		8B4906AD25FA383B00736C0B /* RestautantsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4906AC25FA383B00736C0B /* RestautantsListViewController.swift */; };
 		8B4906B025FA383B00736C0B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B4906AE25FA383B00736C0B /* Main.storyboard */; };
 		8B4906B225FA383F00736C0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B4906B125FA383F00736C0B /* Assets.xcassets */; };
 		8B4906B525FA383F00736C0B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B4906B325FA383F00736C0B /* LaunchScreen.storyboard */; };
+		8B66CFF4260DED62001D0B85 /* ModalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B66CFF3260DED61001D0B85 /* ModalViewModel.swift */; };
+		8B67314B2608A20A0034517A /* CustomCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B6731492608A20A0034517A /* CustomCollectionViewCell.xib */; };
+		8B67314C2608A20B0034517A /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B67314A2608A20A0034517A /* CustomCollectionViewCell.swift */; };
+		8B69B6AB2600A9EF00641D8C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B69B6AA2600A9EF00641D8C /* MapKit.framework */; };
+		8B935A30260B4B540075D36F /* ReviewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B935A2E260B4B540075D36F /* ReviewTableViewCell.xib */; };
+		8B935A31260B4B540075D36F /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B935A2F260B4B540075D36F /* ReviewTableViewCell.swift */; };
+		8B935A34260B550E0075D36F /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B935A33260B550E0075D36F /* ModalViewController.swift */; };
+		8BBEABE726036863008975AD /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BBEABE526036863008975AD /* CustomTableViewCell.xib */; };
+		8BBEABE826036863008975AD /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBEABE626036863008975AD /* CustomTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		002D591A2658ED95C75A2F88 /* Pods_restaurantsManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_restaurantsManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3069ABF9E94BDD04984BB036 /* Pods-restaurantsManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-restaurantsManager.release.xcconfig"; path = "Target Support Files/Pods-restaurantsManager/Pods-restaurantsManager.release.xcconfig"; sourceTree = "<group>"; };
+		8B0A7A3B261720A500BF639C /* Connectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
+		8B1BB31125FB5CFE00FAB2F9 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		8B1BB31425FB5D0A00FAB2F9 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
+		8B1BB31725FB5D2800FAB2F9 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		8B1BB31B25FB73FD00FAB2F9 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		8B1BB32125FB74DF00FAB2F9 /* RestaurantInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantInfoViewController.swift; sourceTree = "<group>"; };
+		8B1BB32425FB757800FAB2F9 /* RestaurantsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsListViewModel.swift; sourceTree = "<group>"; };
+		8B1BB32725FB758C00FAB2F9 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		8B1BB32E25FB785F00FAB2F9 /* RestaurantsListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsListCoordinator.swift; sourceTree = "<group>"; };
+		8B1BB33125FB787200FAB2F9 /* MapCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCoordinator.swift; sourceTree = "<group>"; };
+		8B1BB33725FB79EF00FAB2F9 /* RestaurantInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantInfoViewModel.swift; sourceTree = "<group>"; };
+		8B1BB33C25FB854A00FAB2F9 /* RestaurantsNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsNetworkService.swift; sourceTree = "<group>"; };
+		8B1BB33F25FB856000FAB2F9 /* ReviewsNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsNetworkService.swift; sourceTree = "<group>"; };
+		8B27DD3725FF5903008ABB7F /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		8B4906A525FA383B00736C0B /* restaurantsManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = restaurantsManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B4906A825FA383B00736C0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8B4906AA25FA383B00736C0B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8B4906AC25FA383B00736C0B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8B4906AC25FA383B00736C0B /* RestautantsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestautantsListViewController.swift; sourceTree = "<group>"; };
 		8B4906AF25FA383B00736C0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8B4906B125FA383F00736C0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8B4906B425FA383F00736C0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8B4906B625FA383F00736C0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B66CFF3260DED61001D0B85 /* ModalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewModel.swift; sourceTree = "<group>"; };
+		8B6731492608A20A0034517A /* CustomCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCollectionViewCell.xib; sourceTree = "<group>"; };
+		8B67314A2608A20A0034517A /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
+		8B69B6AA2600A9EF00641D8C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		8B935A2E260B4B540075D36F /* ReviewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReviewTableViewCell.xib; sourceTree = "<group>"; };
+		8B935A2F260B4B540075D36F /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCell.swift; sourceTree = "<group>"; };
+		8B935A33260B550E0075D36F /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
+		8BBEABE526036863008975AD /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
+		8BBEABE626036863008975AD /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		BE5BCBD4225AA37CB6204C47 /* Pods-restaurantsManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-restaurantsManager.debug.xcconfig"; path = "Target Support Files/Pods-restaurantsManager/Pods-restaurantsManager.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -35,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B69B6AB2600A9EF00641D8C /* MapKit.framework in Frameworks */,
 				40B55F20706BDA677C3989D6 /* Pods_restaurantsManager.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -48,13 +93,72 @@
 				BE5BCBD4225AA37CB6204C47 /* Pods-restaurantsManager.debug.xcconfig */,
 				3069ABF9E94BDD04984BB036 /* Pods-restaurantsManager.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		8B1BB30C25FB5C7900FAB2F9 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8B4906AC25FA383B00736C0B /* RestautantsListViewController.swift */,
+				8B1BB31B25FB73FD00FAB2F9 /* MapViewController.swift */,
+				8B1BB32125FB74DF00FAB2F9 /* RestaurantInfoViewController.swift */,
+				8B935A33260B550E0075D36F /* ModalViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		8B1BB30D25FB5C8D00FAB2F9 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				8B1BB31725FB5D2800FAB2F9 /* MainCoordinator.swift */,
+				8B1BB32E25FB785F00FAB2F9 /* RestaurantsListCoordinator.swift */,
+				8B1BB33125FB787200FAB2F9 /* MapCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		8B1BB30E25FB5C9900FAB2F9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8B1BB31125FB5CFE00FAB2F9 /* Restaurant.swift */,
+				8B1BB31425FB5D0A00FAB2F9 /* Review.swift */,
+				8B0A7A3B261720A500BF639C /* Connectivity.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8B1BB30F25FB5CA300FAB2F9 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				8B1BB32425FB757800FAB2F9 /* RestaurantsListViewModel.swift */,
+				8B1BB32725FB758C00FAB2F9 /* MapViewModel.swift */,
+				8B1BB33725FB79EF00FAB2F9 /* RestaurantInfoViewModel.swift */,
+				8B66CFF3260DED61001D0B85 /* ModalViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		8B1BB31025FB5CB200FAB2F9 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				8B1BB33B25FB851600FAB2F9 /* Networking */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		8B1BB33B25FB851600FAB2F9 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				8B1BB33C25FB854A00FAB2F9 /* RestaurantsNetworkService.swift */,
+				8B1BB33F25FB856000FAB2F9 /* ReviewsNetworkService.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		8B49069C25FA383B00736C0B = {
 			isa = PBXGroup;
 			children = (
+				8B27DD3725FF5903008ABB7F /* .swiftlint.yml */,
 				8B4906A725FA383B00736C0B /* restaurantsManager */,
 				8B4906A625FA383B00736C0B /* Products */,
 				035F6D4378207F8BF1FA8B7B /* Pods */,
@@ -73,9 +177,13 @@
 		8B4906A725FA383B00736C0B /* restaurantsManager */ = {
 			isa = PBXGroup;
 			children = (
+				8B1BB30C25FB5C7900FAB2F9 /* Controllers */,
+				8B1BB30D25FB5C8D00FAB2F9 /* Coordinators */,
+				8B935A21260B43EA0075D36F /* Custom Cells and Pins */,
+				8B1BB30E25FB5C9900FAB2F9 /* Models */,
+				8B1BB30F25FB5CA300FAB2F9 /* ViewModels */,
+				8B1BB31025FB5CB200FAB2F9 /* Services */,
 				8B4906A825FA383B00736C0B /* AppDelegate.swift */,
-				8B4906AA25FA383B00736C0B /* SceneDelegate.swift */,
-				8B4906AC25FA383B00736C0B /* ViewController.swift */,
 				8B4906AE25FA383B00736C0B /* Main.storyboard */,
 				8B4906B125FA383F00736C0B /* Assets.xcassets */,
 				8B4906B325FA383F00736C0B /* LaunchScreen.storyboard */,
@@ -84,9 +192,55 @@
 			path = restaurantsManager;
 			sourceTree = "<group>";
 		};
+		8B6249722613304E00FE3F40 /* CustomMapView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CustomMapView;
+			sourceTree = "<group>";
+		};
+		8B6731482608A13F0034517A /* CustomCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				8B6731492608A20A0034517A /* CustomCollectionViewCell.xib */,
+				8B67314A2608A20A0034517A /* CustomCollectionViewCell.swift */,
+			);
+			path = CustomCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		8B693FE826020EEE0047A602 /* CustomTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				8BBEABE526036863008975AD /* CustomTableViewCell.xib */,
+				8BBEABE626036863008975AD /* CustomTableViewCell.swift */,
+			);
+			path = CustomTableViewCell;
+			sourceTree = "<group>";
+		};
+		8B935A21260B43EA0075D36F /* Custom Cells and Pins */ = {
+			isa = PBXGroup;
+			children = (
+				8B6731482608A13F0034517A /* CustomCollectionViewCell */,
+				8B6249722613304E00FE3F40 /* CustomMapView */,
+				8B693FE826020EEE0047A602 /* CustomTableViewCell */,
+				8B935A23260B487A0075D36F /* ReviewTableViewCell */,
+			);
+			path = "Custom Cells and Pins";
+			sourceTree = "<group>";
+		};
+		8B935A23260B487A0075D36F /* ReviewTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				8B935A2E260B4B540075D36F /* ReviewTableViewCell.xib */,
+				8B935A2F260B4B540075D36F /* ReviewTableViewCell.swift */,
+			);
+			path = ReviewTableViewCell;
+			sourceTree = "<group>";
+		};
 		E3659D438637C869B0D90802 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8B69B6AA2600A9EF00641D8C /* MapKit.framework */,
 				002D591A2658ED95C75A2F88 /* Pods_restaurantsManager.framework */,
 			);
 			name = Frameworks;
@@ -104,6 +258,7 @@
 				8B4906A225FA383B00736C0B /* Frameworks */,
 				8B4906A325FA383B00736C0B /* Resources */,
 				474EC80CB038FD5D51771CB3 /* [CP] Embed Pods Frameworks */,
+				8B27DD1F25FF485C008ABB7F /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -151,8 +306,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B27DD3825FF5903008ABB7F /* .swiftlint.yml in Resources */,
+				8B67314B2608A20A0034517A /* CustomCollectionViewCell.xib in Resources */,
 				8B4906B525FA383F00736C0B /* LaunchScreen.storyboard in Resources */,
+				8B935A30260B4B540075D36F /* ReviewTableViewCell.xib in Resources */,
 				8B4906B225FA383F00736C0B /* Assets.xcassets in Resources */,
+				8BBEABE726036863008975AD /* CustomTableViewCell.xib in Resources */,
 				8B4906B025FA383B00736C0B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -199,6 +358,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		8B27DD1F25FF485C008ABB7F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -206,9 +382,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B4906AD25FA383B00736C0B /* ViewController.swift in Sources */,
+				8BBEABE826036863008975AD /* CustomTableViewCell.swift in Sources */,
+				8B1BB31225FB5CFE00FAB2F9 /* Restaurant.swift in Sources */,
+				8B935A34260B550E0075D36F /* ModalViewController.swift in Sources */,
+				8B1BB33D25FB854A00FAB2F9 /* RestaurantsNetworkService.swift in Sources */,
+				8B1BB32225FB74DF00FAB2F9 /* RestaurantInfoViewController.swift in Sources */,
+				8B1BB31825FB5D2800FAB2F9 /* MainCoordinator.swift in Sources */,
+				8B1BB34025FB856000FAB2F9 /* ReviewsNetworkService.swift in Sources */,
+				8B67314C2608A20B0034517A /* CustomCollectionViewCell.swift in Sources */,
+				8B66CFF4260DED62001D0B85 /* ModalViewModel.swift in Sources */,
+				8B1BB32525FB757800FAB2F9 /* RestaurantsListViewModel.swift in Sources */,
+				8B1BB31525FB5D0A00FAB2F9 /* Review.swift in Sources */,
+				8B1BB32F25FB785F00FAB2F9 /* RestaurantsListCoordinator.swift in Sources */,
+				8B0A7A3C261720A900BF639C /* Connectivity.swift in Sources */,
+				8B4906AD25FA383B00736C0B /* RestautantsListViewController.swift in Sources */,
+				8B1BB32825FB758C00FAB2F9 /* MapViewModel.swift in Sources */,
+				8B1BB33225FB787200FAB2F9 /* MapCoordinator.swift in Sources */,
+				8B1BB33825FB79EF00FAB2F9 /* RestaurantInfoViewModel.swift in Sources */,
 				8B4906A925FA383B00736C0B /* AppDelegate.swift in Sources */,
-				8B4906AB25FA383B00736C0B /* SceneDelegate.swift in Sources */,
+				8B935A31260B4B540075D36F /* ReviewTableViewCell.swift in Sources */,
+				8B1BB31C25FB73FD00FAB2F9 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,7 +551,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = restaurantsManager/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -378,7 +571,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = restaurantsManager/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

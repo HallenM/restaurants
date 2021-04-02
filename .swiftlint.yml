@@ -1,0 +1,32 @@
+opt_in_rules:
+    - explicit_init
+    - explicit_self
+
+disabled_rules:
+    - force_cast
+    - notification_center_detachment
+    - implicit_getter
+    - identifier_name
+    - function_parameter_count
+    - file_length
+    - type_body_length
+
+trailing_whitespace:
+    ignores_empty_lines: true
+
+line_length:
+    warning: 150
+    
+variable_name:
+    min_length:
+        error: 1
+
+cyclomatic_complexity:
+    warning: 25
+    error: 250 #ignore cyclomatic complexity until swiftlint learns to ignore "guard let"s for this feature
+    
+function_body_length:
+    error: 400
+
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+    - Pods
