@@ -30,7 +30,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         coordinator = MainCoordinator(navigationController: viewController)
         
         // Tell the coordinator to take over control
-        coordinator?.start()
+        let netvorkService = RestaurantsNetworkService()
+        coordinator?.start(networkService: netvorkService)
         return true
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 protocol MapViewDelegateProtocol: class {
     
@@ -19,7 +20,11 @@ class MapViewModel {
     
     private var restaurantsList = [Restaurant]()
     
-    private let networkService: RestaurantsNetworkService = RestaurantsNetworkService()
+    private let networkService: RestaurantsNetworkService
+    
+    init(networkService: RestaurantsNetworkService) {
+        self.networkService = networkService
+    }
     
     func initData(haveInternet: Bool, completion: @escaping () -> Void) {
         if haveInternet {

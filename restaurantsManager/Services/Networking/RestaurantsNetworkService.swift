@@ -11,7 +11,11 @@ enum NetworkServiceError: Error {
     case noDataError(localizedError: String)
 }
 
-class RestaurantsNetworkService {
+class RestaurantsNetworkService: Equatable {
+    
+    private var restaurantList: [Restaurant] = []
+    
+    private var subscribers: [AnyClass] = []
     
     func getRestaurantsList(completion: @escaping(_ restaurants: Result<[Restaurant], Error>) -> Void) {
         AF.request(
@@ -29,6 +33,7 @@ class RestaurantsNetworkService {
                         }
                         
                         let restaurantsData = try JSONDecoder().decode([Restaurant].self, from: data)
+                        self.restaurantList = restaurantsData
                         
                         completion(.success(restaurantsData))
                         
@@ -41,5 +46,21 @@ class RestaurantsNetworkService {
                     completion(.failure(error))
                 }
             }
+    }
+    
+    func subscribe(subscriber: AnyClass) {
+        subscribers.append(subscriber)
+    }
+    
+    func unsubscribe(subscriber: AnyClass) {
+        for index in 0..<subscribers.count {
+            if subscribers[index] === subscriber {
+                subscribers.remove(at: index)
+            }
+        }
+    }
+    
+    static func == (lhs: RestaurantsNetworkService, rhs: RestaurantsNetworkService) -> Bool {
+        return true
     }
 }

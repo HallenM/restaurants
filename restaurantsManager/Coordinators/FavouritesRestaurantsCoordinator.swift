@@ -1,45 +1,47 @@
 //
-//  MapCoordinator.swift
+//  FavouritesRestaurantsCoordinator.swift
 //  restaurantsManager
 //
-//  Created by developer on 12.03.2021.
+//  Created by Moshkina on 03.06.2021.
 //
 
 import UIKit
 
-class MapCoordinator: Coordinator {
-    
+class FavouritesRestaurantsCoordinator: Coordinator {
+
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController?
-    
-    private var mapVM: MapViewModel?
+
+    private var favouritesRestaurantsVM: FavouritesRestaurantsViewModel?
     private var restaurantInfoVM: RestaurantInfoViewModel?
-    
+
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
-    
+
     func start(networkService: RestaurantsNetworkService) {
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        
-        guard let mapVC = storyboard
-                .instantiateViewController(identifier: "MapViewController") as?
-                MapViewController else { return }
-        
+
+        guard let favouritesRestaurantsVC = storyboard
+                .instantiateViewController(identifier: "FavouritesRestaurantsViewController") as?
+                FavouritesRestaurantsViewController else { return }
+
         // Add icon for tabBar tab
-        let icon = UITabBarItem(title: "Map", image: UIImage(named: "MapWithPin"), selectedImage: UIImage(named: "MapWithPinFill"))
-        mapVC.tabBarItem = icon
+        let icon = UITabBarItem(title: "Favourites Restaurants",
+                                image: UIImage(named: "FavoutritesMark"),
+                                selectedImage: UIImage(named: "FavoutritesMarkFill"))
+        favouritesRestaurantsVC.tabBarItem = icon
+
+        favouritesRestaurantsVM = FavouritesRestaurantsViewModel(networkService: networkService)
+        favouritesRestaurantsVM?.actionDelegate = self
         
-        mapVM = MapViewModel(networkService: networkService)
-        mapVM?.actionDelegate = self
+        favouritesRestaurantsVC.viewModel = favouritesRestaurantsVM
         
-        mapVC.viewModel = mapVM
-        
-        navigationController?.pushViewController(mapVC, animated: true)
+        navigationController?.pushViewController(favouritesRestaurantsVC, animated: true)
     }
 }
 
-extension MapCoordinator: RestaurantCoordinatorDelegateProtocol {
+extension FavouritesRestaurantsCoordinator: RestaurantCoordinatorDelegateProtocol {
     func showRestaurantInfo(restaurant: Restaurant) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         

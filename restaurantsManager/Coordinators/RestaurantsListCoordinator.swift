@@ -23,7 +23,7 @@ class RestaurantsListCoordinator: Coordinator {
         self.navigationController = navigationController
     }
     
-    func start() {
+    func start(networkService: RestaurantsNetworkService) {
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         
         guard let restaurantsListVC = storyboard
@@ -34,7 +34,7 @@ class RestaurantsListCoordinator: Coordinator {
         let icon = UITabBarItem(title: "Restaurants List", image: UIImage(named: "List"), selectedImage: UIImage(named: "ListFill"))
         restaurantsListVC.tabBarItem = icon
         
-        restaurantsListVM = RestaurantsListViewModel()
+        restaurantsListVM = RestaurantsListViewModel(networkService: networkService)
         restaurantsListVM?.actionDelegate = self
         
         restaurantsListVC.viewModel = restaurantsListVM

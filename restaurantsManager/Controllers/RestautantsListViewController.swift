@@ -13,6 +13,10 @@ class RestaurantsListViewController: UIViewController {
     
     @IBOutlet private weak var textField: UITextField!
     
+    @IBOutlet private weak var infoView: UIView!
+    
+    @IBOutlet weak var infoButton: UIButton!
+    
     @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     
     weak var viewModel: RestaurantsListViewModel?
@@ -33,19 +37,19 @@ class RestaurantsListViewController: UIViewController {
         
         // Checking avaliable of network
         if Connectivity.isConnectedToInternet {
+            tableView.isHidden = false
+            infoView.isHidden = true
             // Send request for VM to initialize data for table
-            viewModel?.initData(haveInternet: true, completion: {
-                                    DispatchQueue.main.async {
-                                        self.tableView.reloadData()
-                                    }
+            viewModel?.initData(completion: { (isCompleted) in
+                if isCompleted {
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                }
             })
          } else {
-            // Send request for VM to initialize data for table
-            viewModel?.initData(haveInternet: false, completion: {
-                                    DispatchQueue.main.async {
-                                        self.tableView.reloadData()
-                                    }
-            })
+            tableView.isHidden = true
+            infoView.isHidden = false
         }
         
         textField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
@@ -58,23 +62,38 @@ class RestaurantsListViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
     }
     
+    @IBAction func refreshData(_ sender: Any) {
+        infoButton.isEnabled = false
+        viewModel?.getDataForTable(completion: { (isCompleted) in
+            if isCompleted {
+                DispatchQueue.main.async {
+                    self.tableView.isHidden = false
+                    self.infoView.isHidden = true
+                    self.tableView.reloadData()
+                    self.tableView.refreshControl?.endRefreshing()
+                }
+            }
+            self.infoButton.isEnabled = true
+        })
+    }
+    
     // Sender for refreshing data in table
     @objc func handleRefreshControl(sender: AnyObject) {
         // Checking avaliable of network
         if Connectivity.isConnectedToInternet {
-            viewModel?.getDataForTable(completion: {
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                    self.tableView.refreshControl?.endRefreshing()
+            tableView.isHidden = false
+            infoView.isHidden = true
+            viewModel?.getDataForTable(completion: { (isCompleted) in
+                if isCompleted {
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                        self.tableView.refreshControl?.endRefreshing()
+                    }
                 }
             })
          } else {
-            viewModel?.getSavedDataForTable(completion: {
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                    self.tableView.refreshControl?.endRefreshing()
-                }
-            })
+            tableView.isHidden = true
+            infoView.isHidden = false
         }
     }
     

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 protocol RestaurantsListViewDelegateProtocol: class {
     
@@ -21,43 +22,60 @@ class RestaurantsListViewModel {
     
     private var allRestaurants = [Restaurant]()
     
-    private let networkService: RestaurantsNetworkService = RestaurantsNetworkService()
+    private let networkService: RestaurantsNetworkService
     
-    func initData(haveInternet: Bool, completion: @escaping () -> Void) {
-        if haveInternet {
-            getDataForTable(completion: completion)
-        } else {
-            getSavedDataForTable(completion: completion)
+    private var realm: Realm!
+    
+    private var realmData: Results<RestaurantRealm> {
+        get {
+            return realm.objects(RestaurantRealm.self)
         }
     }
     
-    func getDataForTable(completion: @escaping () -> Void) {
+    init(networkService: RestaurantsNetworkService) {
+        self.networkService = networkService
+    }
+    
+    func initData(completion: @escaping (_ isSuccess: Bool) -> Void) {
+        realm = try? Realm()
+        
+        getDataForTable(completion: completion)
+    }
+    
+    func getDataForTable(completion: @escaping (_ isSuccess: Bool) -> Void) {
         self.networkService.getRestaurantsList { (result) in
             switch result {
             case .success(let restaurants):
                 self.restaurantsList = restaurants
                 self.allRestaurants = restaurants
+                completion(true)
             case .failure(let error):
                 print("RestaurantsNetworkService Error: \(error)")
                 self.restaurantsList = [Restaurant]()
                 self.allRestaurants = [Restaurant]()
-                return
+                completion(false)
             }
-            completion()
         }
     }
     
     func getSavedDataForTable(completion: @escaping () -> Void) {
-        let defaults = UserDefaults.standard
-        if let data = defaults.value(forKey: "SavedRestaurants") as? Data {
-            if let array = try? PropertyListDecoder().decode([Restaurant].self, from: data) {
-                self.restaurantsList = array
-                self.allRestaurants = array
-            }
-        } else {
-            let array = [Restaurant]()
-            self.restaurantsList = array
-            self.allRestaurants = array
+//        let defaults = UserDefaults.standard
+//        if let data = defaults.value(forKey: "SavedRestaurants") as? Data {
+//            if let array = try? PropertyListDecoder().decode([Restaurant].self, from: data) {
+//                self.restaurantsList = array
+//                self.allRestaurants = array
+//            }
+//        } else {
+//            let array = [Restaurant]()
+//            self.restaurantsList = array
+//            self.allRestaurants = array
+//        }
+        self.restaurantsList = []
+        self.allRestaurants = []
+        for realItem in realmData {
+            let item = realItem.objectToStructure()
+            self.restaurantsList.append(item)
+            self.allRestaurants.append(item)
         }
         completion()
     }

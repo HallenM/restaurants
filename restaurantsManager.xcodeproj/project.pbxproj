@@ -36,6 +36,9 @@
 		8B935A34260B550E0075D36F /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B935A33260B550E0075D36F /* ModalViewController.swift */; };
 		8BBEABE726036863008975AD /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BBEABE526036863008975AD /* CustomTableViewCell.xib */; };
 		8BBEABE826036863008975AD /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBEABE626036863008975AD /* CustomTableViewCell.swift */; };
+		F59103052668DD2600DA4642 /* FavouritesRestaurantsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59103042668DD2600DA4642 /* FavouritesRestaurantsViewController.swift */; };
+		F59103082668DD6E00DA4642 /* FavouritesRestaurantsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59103072668DD6E00DA4642 /* FavouritesRestaurantsCoordinator.swift */; };
+		F591030B2668DF6C00DA4642 /* FavouritesRestaurantsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F591030A2668DF6C00DA4642 /* FavouritesRestaurantsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +75,9 @@
 		8BBEABE526036863008975AD /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
 		8BBEABE626036863008975AD /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		BE5BCBD4225AA37CB6204C47 /* Pods-restaurantsManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-restaurantsManager.debug.xcconfig"; path = "Target Support Files/Pods-restaurantsManager/Pods-restaurantsManager.debug.xcconfig"; sourceTree = "<group>"; };
+		F59103042668DD2600DA4642 /* FavouritesRestaurantsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesRestaurantsViewController.swift; sourceTree = "<group>"; };
+		F59103072668DD6E00DA4642 /* FavouritesRestaurantsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesRestaurantsCoordinator.swift; sourceTree = "<group>"; };
+		F591030A2668DF6C00DA4642 /* FavouritesRestaurantsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesRestaurantsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +109,7 @@
 				8B1BB31B25FB73FD00FAB2F9 /* MapViewController.swift */,
 				8B1BB32125FB74DF00FAB2F9 /* RestaurantInfoViewController.swift */,
 				8B935A33260B550E0075D36F /* ModalViewController.swift */,
+				F59103042668DD2600DA4642 /* FavouritesRestaurantsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -113,6 +120,7 @@
 				8B1BB31725FB5D2800FAB2F9 /* MainCoordinator.swift */,
 				8B1BB32E25FB785F00FAB2F9 /* RestaurantsListCoordinator.swift */,
 				8B1BB33125FB787200FAB2F9 /* MapCoordinator.swift */,
+				F59103072668DD6E00DA4642 /* FavouritesRestaurantsCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -134,6 +142,7 @@
 				8B1BB32725FB758C00FAB2F9 /* MapViewModel.swift */,
 				8B1BB33725FB79EF00FAB2F9 /* RestaurantInfoViewModel.swift */,
 				8B66CFF3260DED61001D0B85 /* ModalViewModel.swift */,
+				F591030A2668DF6C00DA4642 /* FavouritesRestaurantsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -192,13 +201,6 @@
 			path = restaurantsManager;
 			sourceTree = "<group>";
 		};
-		8B6249722613304E00FE3F40 /* CustomMapView */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = CustomMapView;
-			sourceTree = "<group>";
-		};
 		8B6731482608A13F0034517A /* CustomCollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -221,7 +223,6 @@
 			isa = PBXGroup;
 			children = (
 				8B6731482608A13F0034517A /* CustomCollectionViewCell */,
-				8B6249722613304E00FE3F40 /* CustomMapView */,
 				8B693FE826020EEE0047A602 /* CustomTableViewCell */,
 				8B935A23260B487A0075D36F /* ReviewTableViewCell */,
 			);
@@ -385,11 +386,14 @@
 				8BBEABE826036863008975AD /* CustomTableViewCell.swift in Sources */,
 				8B1BB31225FB5CFE00FAB2F9 /* Restaurant.swift in Sources */,
 				8B935A34260B550E0075D36F /* ModalViewController.swift in Sources */,
+				F59103082668DD6E00DA4642 /* FavouritesRestaurantsCoordinator.swift in Sources */,
 				8B1BB33D25FB854A00FAB2F9 /* RestaurantsNetworkService.swift in Sources */,
 				8B1BB32225FB74DF00FAB2F9 /* RestaurantInfoViewController.swift in Sources */,
 				8B1BB31825FB5D2800FAB2F9 /* MainCoordinator.swift in Sources */,
 				8B1BB34025FB856000FAB2F9 /* ReviewsNetworkService.swift in Sources */,
+				F591030B2668DF6C00DA4642 /* FavouritesRestaurantsViewModel.swift in Sources */,
 				8B67314C2608A20B0034517A /* CustomCollectionViewCell.swift in Sources */,
+				F59103052668DD2600DA4642 /* FavouritesRestaurantsViewController.swift in Sources */,
 				8B66CFF4260DED62001D0B85 /* ModalViewModel.swift in Sources */,
 				8B1BB32525FB757800FAB2F9 /* RestaurantsListViewModel.swift in Sources */,
 				8B1BB31525FB5D0A00FAB2F9 /* Review.swift in Sources */,
@@ -550,8 +554,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SUAWT97CSE;
 				INFOPLIST_FILE = restaurantsManager/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -570,8 +575,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SUAWT97CSE;
 				INFOPLIST_FILE = restaurantsManager/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

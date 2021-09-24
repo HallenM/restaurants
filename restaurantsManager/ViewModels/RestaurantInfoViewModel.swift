@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 protocol RestaurantInfoViewDelegateProtocol: class {
     func showModalWindow()
@@ -26,8 +27,18 @@ class RestaurantInfoViewModel {
     
     private let networkService: ReviewsNetworkService = ReviewsNetworkService()
     
+    private var realm: Realm!
+    
+    private var realmData: Results<RestaurantRealm>{
+        get {
+            return realm.objects(RestaurantRealm.self)
+        }
+    }
+    
     init(restaurant: Restaurant) {
         self.restaurant = restaurant
+        
+        realm = try? Realm()
     }
     
     func initReviews(completion: @escaping () -> Void) {
@@ -49,46 +60,62 @@ class RestaurantInfoViewModel {
     }
     
     func addRestaurantToStorage() {
-        let defaults = UserDefaults.standard
-        if let data = defaults.value(forKey: "SavedRestaurants") as? Data {
-            if var array = try? PropertyListDecoder().decode([Restaurant].self, from: data) {
-                array.append(restaurant)
-                
-                if let savedArray = try? PropertyListEncoder().encode(array) {
-                    defaults.set(savedArray, forKey: "SavedRestaurants")
-                }
-            }
-        } else {
-            var array = [Restaurant]()
-            array.append(restaurant)
-            
-            if let savedArray = try? PropertyListEncoder().encode(array) {
-                defaults.set(savedArray, forKey: "SavedRestaurants")
-            }
+        
+        let item = RestaurantRealm().structToObject(structure: restaurant)
+        try? realm.write {
+            self.realm.add(item)
         }
+//        let defaults = UserDefaults.standard
+//        if let data = defaults.value(forKey: "SavedRestaurants") as? Data {
+//            if var array = try? PropertyListDecoder().decode([Restaurant].self, from: data) {
+//                array.append(restaurant)
+//
+//                if let savedArray = try? PropertyListEncoder().encode(array) {
+//                    defaults.set(savedArray, forKey: "SavedRestaurants")
+//                }
+//            }
+//        } else {
+//            var array = [Restaurant]()
+//            array.append(restaurant)
+//
+//            if let savedArray = try? PropertyListEncoder().encode(array) {
+//                defaults.set(savedArray, forKey: "SavedRestaurants")
+//            }
+//        }
     }
     
     func delRestaurantfromStorage() {
-        let defaults = UserDefaults.standard
-        if let data = defaults.value(forKey: "SavedRestaurants") as? Data {
-            if var array = try? PropertyListDecoder().decode([Restaurant].self, from: data) {
-                // Searching equal structures
-                for i in 0..<array.count {
-                    if equalValues(item: array[i]) {
-                        array.remove(at: i)
-                        break
-                    }
+//        let defaults = UserDefaults.standard
+//        if let data = defaults.value(forKey: "SavedRestaurants") as? Data {
+//            if var array = try? PropertyListDecoder().decode([Restaurant].self, from: data) {
+//                // Searching equal structures
+//                for i in 0..<array.count {
+//                    if equalValues(item: array[i]) {
+//                        array.remove(at: i)
+//                        break
+//                    }
+//                }
+//
+//                if let savedArray = try? PropertyListEncoder().encode(array) {
+//                    defaults.set(savedArray, forKey: "SavedRestaurants")
+//                }
+//            }
+//        } else {
+//            let array = [Restaurant]()
+//
+//            if let savedArray = try? PropertyListEncoder().encode(array) {
+//                defaults.set(savedArray, forKey: "SavedRestaurants")
+//            }
+//        }
+        
+        // Searching equal structures
+        for i in 0..<realmData.count {
+            let realmItem = realmData[i].objectToStructure()
+            if equalValues(item: realmItem) {
+                try? realm.write {
+                    self.realm.delete(realmData[i])
                 }
-                
-                if let savedArray = try? PropertyListEncoder().encode(array) {
-                    defaults.set(savedArray, forKey: "SavedRestaurants")
-                }
-            }
-        } else {
-            let array = [Restaurant]()
-            
-            if let savedArray = try? PropertyListEncoder().encode(array) {
-                defaults.set(savedArray, forKey: "SavedRestaurants")
+                break
             }
         }
     }
@@ -115,15 +142,23 @@ class RestaurantInfoViewModel {
     }
     
     func checkingFavouritesList() -> Bool {
-        let defaults = UserDefaults.standard
-        if let data = defaults.value(forKey: "SavedRestaurants") as? Data {
-            if let array = try? PropertyListDecoder().decode([Restaurant].self, from: data) {
-                // Searching equal structures
-                for i in 0..<array.count {
-                    if equalValues(item: array[i]) {
-                        return true
-                    }
-                }
+//        let defaults = UserDefaults.standard
+//        if let data = defaults.value(forKey: "SavedRestaurants") as? Data {
+//            if let array = try? PropertyListDecoder().decode([Restaurant].self, from: data) {
+//                // Searching equal structures
+//                for i in 0..<array.count {
+//                    if equalValues(item: array[i]) {
+//                        return true
+//                    }
+//                }
+//            }
+//        }
+        
+        // Searching equal structures
+        for i in 0..<realmData.count {
+            let realmItem = realmData[i].objectToStructure()
+            if equalValues(item: realmItem) {
+                return true
             }
         }
         return false
