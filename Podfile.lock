@@ -3,11 +3,11 @@ PODS:
   - HCSStarRatingView (1.5)
   - Kingfisher (6.2.1)
   - MBProgressHUD (1.2.0)
-  - Realm (10.1.4):
-    - Realm/Headers (= 10.1.4)
-  - Realm/Headers (10.1.4)
-  - RealmSwift (10.1.4):
-    - Realm (= 10.1.4)
+  - Realm (10.5.2):
+    - Realm/Headers (= 10.5.2)
+  - Realm/Headers (10.5.2)
+  - RealmSwift (10.5.2):
+    - Realm (= 10.5.2)
   - SwiftLint (0.43.0)
 
 DEPENDENCIES:
@@ -15,7 +15,7 @@ DEPENDENCIES:
   - HCSStarRatingView (~> 1.5)
   - Kingfisher (~> 6.0)
   - MBProgressHUD (~> 1.2)
-  - RealmSwift (= 10.1.4)
+  - RealmSwift (~> 10.5.2)
   - SwiftLint
 
 SPEC REPOS:
@@ -33,10 +33,10 @@ SPEC CHECKSUMS:
   HCSStarRatingView: 1d18f79654735514cd6f00e6d90e38cb6320dc31
   Kingfisher: e71c6fac2aebb1262888cabc2cb13d313362a48f
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
-  Realm: 80f4fb2971ccb9adc27a47d0955ae8e533a7030b
-  RealmSwift: 0e566ca714edb377bba8ea0811eafcea0b93734e
+  Realm: 2e1bc0d28301006176692da234deff51f867d5ae
+  RealmSwift: a522ad39715e8b4e491af4460059bc32b84f5a9b
   SwiftLint: 0c645fdc6feed3e390c1701ab3cc669f88b42752
 
-PODFILE CHECKSUM: ce90fbb803dd58c8229e5d6bc8fe01b65193dbbb
+PODFILE CHECKSUM: bc680f0d62469f6ec5ad84cc7026a5172f08e44b
 
 COCOAPODS: 1.10.1

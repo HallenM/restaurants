@@ -10,6 +10,6 @@ target 'restaurantsManager' do
   pod 'MBProgressHUD', '~> 1.2'
   pod 'SwiftLint'
   pod 'HCSStarRatingView', '~> 1.5'
-  pod 'RealmSwift', '=10.1.4'
+  pod 'RealmSwift', '~> 10.5.2'
 
 end
